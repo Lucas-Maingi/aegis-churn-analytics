@@ -35,10 +35,10 @@ ENV/
 data/raw/
 data/processed/
 
-# --- Model Artifacts (too large for git) ---
-models/*.joblib
-models/*.pkl
-models/*.json
+# --- Model Artifacts (tracked as they are small) ---
+# models/*.joblib
+# models/*.pkl
+# models/*.json
 !models/.gitkeep
 
 # --- MLflow ---
