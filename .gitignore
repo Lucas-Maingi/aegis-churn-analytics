@@ -1,0 +1,65 @@
+# ============================================================================
+# Churn Prediction API — .gitignore
+# ============================================================================
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+eggs/
+*.egg
+.Python
+
+# --- Virtual Environment ---
+venv/
+.venv/
+env/
+ENV/
+
+# --- IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# --- Data (raw data should not be in git) ---
+data/raw/
+data/processed/
+
+# --- Model Artifacts (too large for git) ---
+models/*.joblib
+models/*.pkl
+models/*.json
+!models/.gitkeep
+
+# --- MLflow ---
+mlruns/
+mlartifacts/
+
+# --- Environment ---
+.env
+.env.local
+.env.production
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Logs ---
+*.log
+logs/
+
+# --- Coverage ---
+.coverage
+htmlcov/
+.pytest_cache/
