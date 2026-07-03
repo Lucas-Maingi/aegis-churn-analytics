@@ -1,7 +1,8 @@
-import os
 import logging
+import os
 from typing import Optional
-from supabase import create_client, Client
+
+from supabase import Client, create_client
 
 logger = logging.getLogger(__name__)
 
@@ -50,7 +51,7 @@ def log_prediction(customer_id: str, churn_probability: float, risk_tier: str, p
         # prediction_date will be auto-populated by Postgres now() if not provided,
         # or we could explicitly pass it if needed.
         
-        response = client.table("predictions").insert(data).execute()
+        client.table("predictions").insert(data).execute()
         return True
     except Exception as e:
         logger.error(f"Error logging prediction to Supabase: {e}")
@@ -66,7 +67,7 @@ def log_prediction_batch(predictions: list[dict]) -> bool:
         return False
         
     try:
-        response = client.table("predictions").insert(predictions).execute()
+        client.table("predictions").insert(predictions).execute()
         return True
     except Exception as e:
         logger.error(f"Error logging batch predictions to Supabase: {e}")

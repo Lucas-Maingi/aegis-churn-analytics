@@ -25,17 +25,17 @@ import json
 import logging
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Tuple
 
 import joblib
 import mlflow
 import mlflow.sklearn
 import numpy as np
 import pandas as pd
+from lightgbm import LGBMClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import RandomizedSearchCV
 from xgboost import XGBClassifier
-from lightgbm import LGBMClassifier
 
 from ..utils.metrics import evaluate_model
 

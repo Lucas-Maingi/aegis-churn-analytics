@@ -17,8 +17,8 @@ Classes (preprocessor):
 """
 
 from .loader import (
-    load_telco_data,
     get_feature_target_split,
+    load_telco_data,
     validate_input_data,
 )
 from .preprocessor import ChurnPreprocessor

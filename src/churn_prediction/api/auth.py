@@ -5,7 +5,8 @@ API key security dependency to protect prediction endpoints.
 """
 
 import os
-from fastapi import Header, HTTPException, Security, status
+
+from fastapi import Header, HTTPException, status
 
 # Load API key from environment, default to mock key for local development
 API_KEY = os.getenv("API_KEY", "test_api_key_1234")

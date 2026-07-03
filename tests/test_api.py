@@ -8,7 +8,6 @@ rate limiting enforcement, and schema validation.
 import pytest
 from fastapi.testclient import TestClient
 
-from churn_prediction import config
 from churn_prediction.api.auth import API_KEY
 from churn_prediction.api.main import app
 

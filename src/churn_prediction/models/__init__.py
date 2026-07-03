@@ -8,8 +8,8 @@ Exports:
     generate_prediction_explanation: End-to-end raw-input → explanation pipeline.
 """
 
-from .trainer import ModelTrainer, save_model_artifacts
 from .explainer import ChurnExplainer, generate_prediction_explanation
+from .trainer import ModelTrainer, save_model_artifacts
 
 __all__ = [
     "ModelTrainer",

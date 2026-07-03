@@ -9,10 +9,11 @@ and persists the model artifacts for API deployment.
 
 import logging
 import sys
+
 from sklearn.model_selection import train_test_split
 
 from churn_prediction import config
-from churn_prediction.data.loader import load_telco_data, get_feature_target_split
+from churn_prediction.data.loader import get_feature_target_split, load_telco_data
 from churn_prediction.data.preprocessor import ChurnPreprocessor
 from churn_prediction.models.trainer import ModelTrainer, save_model_artifacts
 

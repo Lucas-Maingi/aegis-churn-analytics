@@ -9,10 +9,10 @@ Exports:
 """
 
 from .metrics import (
-    evaluate_model,
-    plot_roc_curve,
-    plot_confusion_matrix,
     compare_models,
+    evaluate_model,
+    plot_confusion_matrix,
+    plot_roc_curve,
 )
 
 __all__ = [

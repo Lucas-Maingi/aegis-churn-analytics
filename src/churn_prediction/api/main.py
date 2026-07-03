@@ -8,16 +8,17 @@ lifespan loading of model artifacts, and request handling logic.
 import json
 import logging
 from contextlib import asynccontextmanager
+
+import joblib
 import numpy as np
 import pandas as pd
-import joblib
-
-from fastapi import BackgroundTasks, Depends, FastAPI, Security, status
+from fastapi import BackgroundTasks, FastAPI, Security, status
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 
 from churn_prediction import config
 from churn_prediction.api.auth import verify_api_key
+from churn_prediction.api.database import get_supabase_client, log_prediction, log_prediction_batch
 from churn_prediction.api.middleware import (
     RateLimitMiddleware,
     custom_validation_exception_handler,
@@ -30,9 +31,8 @@ from churn_prediction.api.schemas import (
     ExplanationItem,
     PredictionResponse,
 )
-from churn_prediction.models.explainer import ChurnExplainer
 from churn_prediction.config import get_risk_tier
-from churn_prediction.api.database import log_prediction, log_prediction_batch, get_supabase_client
+from churn_prediction.models.explainer import ChurnExplainer
 
 # Set up logging
 logger = logging.getLogger(__name__)

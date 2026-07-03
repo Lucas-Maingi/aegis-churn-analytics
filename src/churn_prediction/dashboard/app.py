@@ -1,10 +1,10 @@
-import streamlit as st
-import pandas as pd
-import requests
-import json
-import plotly.graph_objects as go
-import plotly.express as px
 import os
+
+import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
+import requests
+import streamlit as st
 
 # Configuration
 API_URL = os.getenv("API_URL", "http://127.0.0.1:8000")
@@ -223,7 +223,7 @@ def main():
                         col_g, col_e = st.columns([1, 1])
                         
                         with col_g:
-                            st.markdown(f'<div class="glass-card">', unsafe_allow_html=True)
+                            st.markdown('<div class="glass-card">', unsafe_allow_html=True)
                             st.plotly_chart(render_gauge(prob, tier), use_container_width=True)
                             st.markdown(f'<div style="text-align: center;"><span class="risk-pill risk-{tier}">RISK TIER: {tier}</span></div>', unsafe_allow_html=True)
                             st.markdown('</div>', unsafe_allow_html=True)
