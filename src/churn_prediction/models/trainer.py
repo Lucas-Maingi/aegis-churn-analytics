@@ -25,19 +25,24 @@ import json
 import logging
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, List, Tuple
+from typing import TYPE_CHECKING, Any, Dict, List, Tuple
 
 import joblib
-import mlflow
-import mlflow.sklearn
 import numpy as np
 import pandas as pd
-from lightgbm import LGBMClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import RandomizedSearchCV
 from xgboost import XGBClassifier
 
 from ..utils.metrics import evaluate_model
+
+# NOTE: `mlflow` and `lightgbm` are training-only dependencies and are imported
+# lazily inside the methods that use them. This keeps the serving path (which
+# imports this module transitively via the models package) free of heavy
+# experiment-tracking and extra-estimator deps. See requirements-api.txt.
+
+if TYPE_CHECKING:  # for type hints only; not imported at runtime
+    from lightgbm import LGBMClassifier
 
 logger = logging.getLogger(__name__)
 
@@ -84,7 +89,8 @@ class ModelTrainer:
         # Populated by train_* methods; maps model_name → (model, metrics)
         self._results: Dict[str, Tuple[Any, Dict[str, Any]]] = {}
 
-        # Ensure the MLflow experiment exists
+        # Ensure the MLflow experiment exists (training-only dependency)
+        import mlflow
         mlflow.set_experiment(_MLFLOW_EXPERIMENT)
 
     # ------------------------------------------------------------------
@@ -98,6 +104,9 @@ class ModelTrainer:
         metrics: Dict[str, Any],
     ) -> None:
         """Log a single training run to MLflow."""
+        import mlflow
+        import mlflow.sklearn
+
         with mlflow.start_run(run_name=model_name):
             mlflow.set_tag("model_name", model_name)
 
@@ -252,6 +261,8 @@ class ModelTrainer:
             Best estimator and evaluation metrics dict.
         """
         logger.info("Training LightGBM (RandomizedSearchCV, n_iter=%d) ...", n_iter)
+
+        from lightgbm import LGBMClassifier
 
         base_lgbm = LGBMClassifier(
             is_unbalance=True,
