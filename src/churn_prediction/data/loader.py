@@ -139,8 +139,11 @@ def _clean(df: pd.DataFrame) -> pd.DataFrame:
     """
     df = df.copy()
 
-    # 1. Strip whitespace from string columns
-    str_cols = df.select_dtypes(include="object").columns
+    # 1. Strip whitespace from string columns. Include both the legacy "object"
+    #    dtype and the pandas 3.0 StringDtype, otherwise no columns are selected
+    #    under pandas 3 and whitespace (e.g. the blank TotalCharges values) is
+    #    never stripped.
+    str_cols = df.select_dtypes(include=["object", "string"]).columns
     for col in str_cols:
         df[col] = df[col].str.strip()
 

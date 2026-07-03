@@ -155,9 +155,15 @@ def _encode_binary_strings(df: pd.DataFrame) -> pd.DataFrame:
     # Standard Yes/No mapping
     yes_no_map = {"Yes": 1, "No": 0}
     for col in _BINARY_STRING_COLS:
+        if col not in df.columns:
+            continue
         if col == "gender":
             df[col] = df[col].map({"Female": 1, "Male": 0})
-        elif col in df.columns and df[col].dtype == object:
+        # Guard against double-mapping columns that are already numeric. We test
+        # for a non-numeric dtype rather than `== object` because pandas 3.0
+        # infers string columns as StringDtype (not object), which would
+        # otherwise skip the mapping and leak raw "Yes"/"No" values downstream.
+        elif not pd.api.types.is_numeric_dtype(df[col]):
             df[col] = df[col].map(yes_no_map)
 
     # Make sure SeniorCitizen stays int
