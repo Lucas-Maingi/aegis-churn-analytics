@@ -10,6 +10,18 @@ Aegis is a production-shaped churn prediction service: a **FastAPI** REST API th
 
 ---
 
+## 🎥 Live Demo
+
+**▶️ Try it live:** https://huggingface.co/spaces/REPLACE_WITH_YOUR_HF_USERNAME/aegis-churn-analytics
+
+The live demo runs the full stack — the FastAPI prediction API and the Streamlit dashboard — in a single always-on container.
+
+![Aegis churn dashboard](docs/demo.gif)
+
+> _Recording the GIF? See [`docs/HOW_TO_RECORD_DEMO.md`](docs/HOW_TO_RECORD_DEMO.md)._
+
+---
+
 ## 🎯 The Business Problem
 
 Acquiring a new SaaS customer costs far more than retaining an existing one, and churn is often only noticed *after* the cancellation. The value of a churn model is not the accuracy number — it is **giving a retention team a ranked list of at-risk accounts early enough to act, with a reason attached to each one.** Aegis is designed around that workflow: every prediction ships with the top-3 drivers so a success manager knows whether to offer a discount, fix a support issue, or push an annual contract.
