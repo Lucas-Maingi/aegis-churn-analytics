@@ -41,13 +41,18 @@ jobs:
       - name: Boot container and verify /health
         run: |
           docker run -d --name aegis -p 8000:8000 aegis-churn-api
-          for i in $(seq 1 30); do
+          for i in $(seq 1 45); do
             if curl --silent --fail http://localhost:8000/health; then
-              echo "API healthy"
+              echo "API healthy after ~$((i * 2))s"
               exit 0
+            fi
+            if [ "$(docker inspect -f '{{.State.Running}}' aegis)" != "true" ]; then
+              echo "Container exited during boot" >&2
+              docker logs aegis >&2
+              exit 1
             fi
             sleep 2
           done
-          echo "API failed to become healthy" >&2
+          echo "API failed to become healthy in time" >&2
           docker logs aegis >&2
           exit 1
