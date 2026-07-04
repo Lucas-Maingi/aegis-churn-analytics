@@ -12,7 +12,7 @@ Aegis is a production-shaped churn prediction service: a **FastAPI** REST API th
 
 ## 🎥 Live Demo
 
-**▶️ Try it live:** https://huggingface.co/spaces/REPLACE_WITH_YOUR_HF_USERNAME/aegis-churn-analytics
+**▶️ Try it live:** https://huggingface.co/spaces/lucas-maingi/aegis-churn-analytics
 
 The live demo runs the full stack — the FastAPI prediction API and the Streamlit dashboard — in a single always-on container.
 
