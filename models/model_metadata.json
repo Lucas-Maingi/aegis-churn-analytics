@@ -1,0 +1,51 @@
+{
+  "model_type": "XGBClassifier",
+  "training_date": "2026-06-28T21:14:45.325648+00:00",
+  "dataset_hash": "8ed8995baa9a",
+  "metrics": {
+    "model_name": "XGBoost",
+    "auc_roc": 0.846726859386706,
+    "precision": 0.5162393162393163,
+    "recall": 0.8074866310160428,
+    "f1": 0.629822732012513,
+    "accuracy": 0.7480482611781405,
+    "optimal_threshold": 0.5460460782051086,
+    "confusion_matrix": [
+      [
+        752,
+        283
+      ],
+      [
+        72,
+        302
+      ]
+    ],
+    "classification_report": {
+      "0": {
+        "precision": 0.912621359223301,
+        "recall": 0.7265700483091787,
+        "f1-score": 0.8090371167294245,
+        "support": 1035.0
+      },
+      "1": {
+        "precision": 0.5162393162393163,
+        "recall": 0.8074866310160428,
+        "f1-score": 0.629822732012513,
+        "support": 374.0
+      },
+      "accuracy": 0.7480482611781405,
+      "macro avg": {
+        "precision": 0.7144303377313086,
+        "recall": 0.7670283396626107,
+        "f1-score": 0.7194299243709688,
+        "support": 1409.0
+      },
+      "weighted avg": {
+        "precision": 0.8074071050884463,
+        "recall": 0.7480482611781405,
+        "f1-score": 0.7614670813255033,
+        "support": 1409.0
+      }
+    }
+  }
+}

@@ -1,0 +1,3 @@
+# This directory stores trained model artifacts.
+# Files here are gitignored (too large for version control).
+# Use `python -m src.churn_prediction.models.trainer` to regenerate.
