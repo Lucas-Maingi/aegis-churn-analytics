@@ -278,3 +278,18 @@ def predict_batch(batch: CustomerBatchInput, background_tasks: BackgroundTasks):
     background_tasks.add_task(log_prediction_batch, db_log_batch)
 
     return BatchPredictionResponse(predictions=predictions)
+
+
+# ── Dashboard static export ──────────────────────────────────────────────────
+# In production the Next.js dashboard is statically exported to web/out and
+# served from this same process (single-container deploy). Starlette matches
+# routes in registration order, so this catch-all mount MUST be registered
+# after every API route above or it shadows them. Skipped in dev, where the
+# dashboard runs on its own server.
+
+_WEB_OUT = config.PROJECT_ROOT / "web" / "out"
+if _WEB_OUT.is_dir():
+    from fastapi.staticfiles import StaticFiles
+
+    app.mount("/", StaticFiles(directory=_WEB_OUT, html=True), name="dashboard")
+    logger.info("Serving dashboard static export from %s", _WEB_OUT)

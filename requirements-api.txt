@@ -20,6 +20,7 @@ supabase>=2.0.0
 
 # Multi-tenant SaaS layer (auth, customer storage, outreach)
 sqlalchemy>=2.0.0
+psycopg2-binary>=2.9.0   # Postgres driver so DATABASE_URL can point at Supabase
 pyjwt>=2.8.0
 python-multipart>=0.0.9   # CSV upload endpoints
 email-validator>=2.0.0    # pydantic EmailStr

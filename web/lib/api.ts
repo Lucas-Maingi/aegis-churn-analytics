@@ -3,8 +3,11 @@
  * The JWT session token lives in localStorage under "aegis_token".
  */
 
+// NEXT_PUBLIC_API_URL is baked in at build time. Production builds set it to
+// "" (same origin — FastAPI serves both the API and this dashboard); dev
+// falls back to the local API server. `??` keeps the intentional "" value.
 export const API_URL =
-  process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
+  process.env.NEXT_PUBLIC_API_URL ?? "http://127.0.0.1:8000";
 
 const TOKEN_KEY = "aegis_token";
 const ORG_KEY = "aegis_org";
