@@ -33,6 +33,10 @@ from churn_prediction.api.schemas import (
 )
 from churn_prediction.config import get_risk_tier
 from churn_prediction.models.explainer import ChurnExplainer
+from churn_prediction.saas.db import init_db
+from churn_prediction.saas.routes_auth import router as auth_router
+from churn_prediction.saas.routes_customers import router as customers_router
+from churn_prediction.saas.routes_outreach import router as outreach_router
 
 # Set up logging
 logger = logging.getLogger(__name__)
@@ -79,6 +83,9 @@ async def lifespan(app: FastAPI):
         type(app.state.model).__name__,
     )
 
+    # Create SaaS tables (organizations, users, customers, outreach) if absent
+    init_db()
+
     yield
 
     # Clean up states on shutdown
@@ -111,6 +118,11 @@ app.add_middleware(RateLimitMiddleware, requests_limit=60, window_seconds=60)
 # Native exception handlers mapping custom and general errors to standard JSON schemas
 app.add_exception_handler(RequestValidationError, custom_validation_exception_handler)
 app.add_exception_handler(Exception, global_exception_handler)
+
+# Multi-tenant SaaS routes (dashboard auth, customer ingestion, outreach)
+app.include_router(auth_router)
+app.include_router(customers_router)
+app.include_router(outreach_router)
 
 
 # ── API Routes ───────────────────────────────────────────────────────────────

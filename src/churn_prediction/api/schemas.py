@@ -108,6 +108,12 @@ class CustomerInput(BaseModel):
         # Ensure customerID is passed as string if present, else empty string
         if data.get("customerID") is None:
             data["customerID"] = ""
+        # The training loader collapses these to "No" before fitting the
+        # encoder; without the same collapse here they one-hot-encode as
+        # all zeros and silently distort predictions.
+        for field, value in data.items():
+            if value in ("No internet service", "No phone service"):
+                data[field] = "No"
         return data
 
 
