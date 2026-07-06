@@ -1,12 +1,17 @@
-# Aegis — SaaS Customer Churn Prediction API
+# Aegis — Churn Intelligence for Subscription Businesses
 
 [![CI](https://github.com/Lucas-Maingi/aegis-churn-analytics/actions/workflows/ci.yml/badge.svg)](https://github.com/Lucas-Maingi/aegis-churn-analytics/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
+![Next.js](https://img.shields.io/badge/next.js-16-black)
 ![Docker](https://img.shields.io/badge/docker-ready-2496ED)
 
-Aegis is a production-shaped churn prediction service: a **FastAPI** REST API that scores a customer's probability of churning and returns **SHAP-based, plain-English explanations** of *why*, plus a Streamlit dashboard for non-technical operators. It is built around the model-serving concerns that separate a notebook from a product — API-key auth, request validation, rate limiting, background persistence, and reproducible artifacts.
+Aegis is a **multi-tenant churn-prevention SaaS** aimed at small ISPs, WISPs, and telecom operators — businesses with Telco-shaped customer data and no data science team. An operator signs up, uploads a CSV export from their billing system, and gets every customer scored for churn risk with **plain-English explanations of why** — then wins at-risk customers back with **one-click retention offers**.
 
-> **Scope & honesty note:** This is a portfolio project trained on the public [IBM Telco Customer Churn dataset](https://www.kaggle.com/datasets/blastchar/telco-customer-churn) (~7,000 customers). Metrics below are real, measured on a held-out test split — not inflated. See [Known Limitations](#-known-limitations).
+**The workflow:** sign up → import your customer CSV (columns auto-matched) → see a ranked list of at-risk customers and revenue at risk → open any customer to read the top-3 churn drivers → click once to send a loyalty discount, annual-plan offer, or personal check-in.
+
+It began as a single-tenant model-serving project and evolved into a product: organizations with isolated data, JWT dashboard sessions, CSV ingestion with column mapping and value normalization, vectorized batch scoring with SHAP explanations, and an outreach engine with real (Resend) or simulated email delivery.
+
+> **Scope & honesty note:** The model is trained on the public [IBM Telco Customer Churn dataset](https://www.kaggle.com/datasets/blastchar/telco-customer-churn) (~7,000 customers). It transfers to telecom/ISP-shaped businesses because the churn drivers (contract type, tenure, price, payment method) are the same; it is **not** a general-purpose churn model for arbitrary SaaS. Metrics below are real, measured on a held-out test split. See [Known Limitations](#-known-limitations).
 
 ---
 
@@ -46,29 +51,38 @@ The winning model is a tuned **XGBoost classifier** selected via randomized sear
 ## 🏗️ Architecture
 
 ```
-                +---------------------------+
-                |   Streamlit Dashboard     |
-                |  (retention-team UI)      |
-                +-------------+-------------+
-                              | HTTP + X-API-Key
-                              v
-                +---------------------------+       +------------------+
-                |        FastAPI API        |       |  Supabase        |
-                |  /predict  /predict/batch |------>|  (prediction log |
-                |  /health                  |  bg   |   for monitoring)|
-                +-------------+-------------+       +------------------+
-                              |
-          +-------------------+-------------------+
-          |                   |                   |
-   Preprocessor         XGBoost model       SHAP explainer
-   (fitted pipeline)    (joblib artifact)   (top-3 drivers)
+        +-----------------------------+
+        |   Next.js Dashboard (web/)  |
+        |  signup · CSV import wizard |
+        |  ranked risk list · drawer  |
+        |  one-click outreach         |
+        +--------------+--------------+
+                       | HTTP + Bearer JWT
+                       v
+        +-----------------------------+        +---------------------+
+        |         FastAPI API         |        |  SQL database       |
+        |  /api/v1/auth/*             |------->|  orgs · users       |
+        |  /api/v1/customers/*        |        |  customers + scores |
+        |  /api/v1/outreach/*         |        |  outreach log       |
+        |  /predict (legacy, API key) |        |  (SQLite locally,   |
+        +--------------+--------------+        |   Postgres in prod) |
+                       |                       +---------------------+
+     +-----------------+------------------+
+     |                 |                  |            +-----------+
+  Preprocessor    XGBoost model     SHAP explainer --->|  Resend   |
+  (column mapper  (joblib           (top-3 drivers,    |  (email   |
+   + pipeline)     artifact)         plain English)    |  offers)  |
+                                                       +-----------+
 ```
 
 ### Engineering features that make it "product", not "notebook"
-- **API-key authentication** (`X-API-Key`) guarding all prediction routes.
+- **Multi-tenancy** — organizations with row-level data isolation; every query is scoped to the authenticated org, with tests proving one tenant can never read or message another tenant's customers.
+- **JWT auth** — PBKDF2-hashed passwords, 7-day signed sessions; the legacy `/predict` routes keep `X-API-Key` auth.
+- **CSV ingestion that meets operators where they are** — arbitrary billing-export headers are auto-matched to the model schema, and messy real-world values are normalized (`fiber` → `Fiber optic`, `mpesa` → `Electronic check`, `1 year` → `One year`). Re-uploads update rather than duplicate.
+- **Vectorized batch scoring** — one preprocessor/model/SHAP pass for the whole upload; probability, risk tier, and top-3 drivers (with raw, human-readable values) persist per customer.
+- **One-click outreach** — three retention templates rendered per customer; delivered via Resend when configured, recorded as `simulated` otherwise so the full workflow demos without credentials.
 - **Strict request validation** via Pydantic schemas — invalid categories or negative tenure are rejected with `422` and a structured error body.
 - **Sliding-window rate limiting** (60 req/min/IP) implemented as ASGI middleware.
-- **Non-blocking persistence** — predictions are logged to Supabase via FastAPI `BackgroundTasks` so logging never adds latency to a response.
 - **Lifespan artifact loading** — model, preprocessor, feature names, and metadata are loaded once at startup and fail fast if any artifact is missing.
 - **Reproducibility** — training pins a `dataset_hash` and `random_state`, and logs runs to MLflow.
 
@@ -76,17 +90,29 @@ The winning model is a tuned **XGBoost classifier** selected via randomized sear
 
 ## 🚀 Quickstart
 
-### Local (Python)
+### Local (full SaaS: API + dashboard)
 ```bash
 pip install -r requirements.txt
 
-# Run the API (package lives under src/)
+# 1. Run the API (package lives under src/)
 PYTHONPATH=src uvicorn churn_prediction.api.main:app --reload --port 8000
 
-# In another terminal, run the dashboard
+# 2. In another terminal, run the Next.js dashboard
+cd web && npm install && npm run dev
+```
+Open `http://localhost:3000`, create an organization, and import
+[`docs/sample_customers.csv`](docs/sample_customers.csv) — a realistic ISP
+billing export with messy headers — to see the full flow. Interactive API
+docs: `http://localhost:8000/docs`.
+
+Optional environment (see `.env.example`): `DATABASE_URL` for Postgres,
+`JWT_SECRET` for sessions, `RESEND_API_KEY` to send real retention emails
+(unset = simulated sends, fully functional demo).
+
+### Legacy single-prediction stack (Streamlit)
+```bash
 API_URL=http://127.0.0.1:8000 streamlit run src/churn_prediction/dashboard/app.py
 ```
-Interactive API docs: `http://localhost:8000/docs`.
 
 ### Docker
 ```bash
@@ -118,7 +144,7 @@ Returns a churn probability, a `LOW`/`MEDIUM`/`HIGH` risk tier, and the top-3 SH
 ```bash
 PYTHONPATH=src pytest --cov=churn_prediction
 ```
-The suite covers the preprocessing pipeline and the full API surface — auth (missing/invalid key), schema validation, single and batch prediction, and rate-limit enforcement. CI runs lint + tests + a Docker health-check smoke test on every push.
+The suite covers the preprocessing pipeline, the prediction API surface (auth, schema validation, single/batch prediction, rate limiting), and the SaaS layer — signup/login, tenant isolation, CSV upload with column mapping, ranked listing, and one-click outreach. CI runs lint + tests + a Docker health-check smoke test on every push.
 
 ---
 
@@ -126,10 +152,11 @@ The suite covers the preprocessing pipeline and the full API surface — auth (m
 
 Being explicit about the gap between this and a real production deployment:
 
-- **Single public dataset.** Telco is clean, static, and balanced-ish. Real SaaS churn data is messier, drifts over time, and needs its own re-benchmarking — expect lower and moving numbers.
-- **No live retraining loop.** Retraining is a manual pipeline run; there is no automated drift detection or scheduled retraining yet.
+- **Single public dataset.** Telco is clean, static, and balanced-ish. A real carrier's data is messier and drifts — the honest path is scoring with this base model first, then fine-tuning per tenant once a few months of labeled outcomes accumulate. There is no per-tenant fine-tuning loop yet.
+- **Telecom-shaped businesses only.** The feature schema (contract, tenure, service type, charges) transfers across ISPs/telcos, not to e-commerce or general SaaS.
+- **No billing/subscriptions.** Tenants are free; there is no Stripe metering of the platform itself yet.
 - **Rate limiting is in-process.** The sliding window is per-process and would need Redis (or similar) to work correctly behind multiple replicas.
-- **Explanation cost.** SHAP is computed per request; at high throughput this would move to a cached/approximate explainer.
+- **Explanation cost.** SHAP is computed per upload batch (not per request), but very large tenants would want a cached/approximate explainer.
 
 ---
 
@@ -137,14 +164,19 @@ Being explicit about the gap between this and a real production deployment:
 
 ```
 src/churn_prediction/
-├── api/            # FastAPI app, auth, middleware, schemas, DB logging
+├── api/            # FastAPI app, legacy predict routes, middleware
+├── saas/           # multi-tenant layer: auth, orgs, CSV mapping,
+│                   # batch scoring, outreach (Resend/simulated)
 ├── data/           # dataset loader + preprocessing pipeline
 ├── models/         # trainer + SHAP explainer
-├── dashboard/      # Streamlit operator UI
+├── dashboard/      # legacy Streamlit operator UI
 ├── utils/          # metrics helpers
 └── config.py       # centralized paths, features, thresholds
-tests/              # API + preprocessing tests
+web/                # Next.js dashboard (signup, import wizard,
+                    # ranked risk list, one-click outreach)
+tests/              # preprocessing + API + SaaS-layer tests
 notebooks/          # EDA and modelling narrative
+docs/               # demo assets + sample ISP billing CSV
 ```
 
 ## 📄 License

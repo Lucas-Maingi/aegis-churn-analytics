@@ -13,11 +13,61 @@ from typing import Any, List
 import numpy as np
 import pandas as pd
 
-from churn_prediction.config import get_risk_tier
+from churn_prediction.config import SERVICE_COLUMNS, get_risk_tier
 from churn_prediction.models.explainer import ChurnExplainer
 from churn_prediction.saas.models import Customer
 
 logger = logging.getLogger(__name__)
+
+_CONTRACT_CODE = {"Month-to-month": 0, "One year": 1, "Two year": 2}
+
+
+def _raw_feature_value(feature_name: str, features: dict, transformed_value):
+    """Resolve the human-readable raw value behind a transformed feature.
+
+    The model works on scaled/one-hot values, but explanation templates
+    like "customer for {value} months" must show the original numbers.
+    """
+    clean = feature_name
+    for prefix in ("num__", "bin__", "cat__", "remainder__"):
+        if clean.startswith(prefix):
+            clean = clean[len(prefix):]
+            break
+
+    if clean in features:
+        return features[clean]
+
+    tenure = float(features.get("tenure") or 0)
+    monthly = float(features.get("MonthlyCharges") or 0.0)
+    total = float(features.get("TotalCharges") or 0.0)
+
+    # Engineered features — mirror data/preprocessor.py definitions
+    if clean == "avg_monthly_charge":
+        return round(total / max(tenure, 1.0), 2)
+    if clean == "contract_charge_interaction":
+        return round(_CONTRACT_CODE.get(features.get("Contract"), 0) * monthly, 2)
+    if clean == "num_services":
+        count = 0
+        for col in SERVICE_COLUMNS:
+            val = features.get(col, "No")
+            count += int(val != "No") if col == "InternetService" else int(val == "Yes")
+        return count
+    if clean == "has_protection_bundle":
+        protected = all(
+            features.get(col) == "Yes"
+            for col in ("OnlineSecurity", "TechSupport", "DeviceProtection")
+        )
+        return "Yes" if protected else "No"
+    if clean.startswith("tenure_bucket"):
+        if tenure <= 12:
+            return "0-12"
+        if tenure <= 24:
+            return "13-24"
+        if tenure <= 48:
+            return "25-48"
+        return "49-72"
+
+    return transformed_value
 
 
 def score_customers(
@@ -66,13 +116,14 @@ def score_customers(
             feat = feature_names[idx]
             sv = float(row_shap[idx])
             fv = row_features[idx]
+            raw_value = _raw_feature_value(feat, cust.features, fv)
             direction = "increases" if sv > 0 else "decreases"
             explanations.append({
                 "feature_name": feat,
                 "shap_value": sv,
-                "feature_value": fv.item() if hasattr(fv, "item") else fv,
+                "feature_value": raw_value.item() if hasattr(raw_value, "item") else raw_value,
                 "direction": f"{direction} churn risk",
-                "plain_english": explainer._render_explanation(feat, fv),
+                "plain_english": explainer._render_explanation(feat, raw_value),
             })
         cust.explanations = explanations
 
