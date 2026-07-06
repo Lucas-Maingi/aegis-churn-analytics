@@ -7,6 +7,7 @@ lifespan loading of model artifacts, and request handling logic.
 
 import json
 import logging
+import os
 from contextlib import asynccontextmanager
 
 import joblib
@@ -85,6 +86,12 @@ async def lifespan(app: FastAPI):
 
     # Create SaaS tables (organizations, users, customers, outreach) if absent
     init_db()
+
+    # Hosted-demo convenience: pre-populate an empty DB with a scored demo org
+    if os.getenv("SEED_DEMO") == "1":
+        from churn_prediction.saas.seed import seed_demo_org
+
+        seed_demo_org(app.state.model, app.state.preprocessor, app.state.feature_names)
 
     yield
 

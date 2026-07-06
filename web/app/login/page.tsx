@@ -11,12 +11,23 @@ interface AuthResponse {
   organization_name: string;
 }
 
+// Baked in at build time for hosted demos ("email / password"); undefined
+// in normal builds, which hides the demo box entirely.
+const DEMO_LOGIN = process.env.NEXT_PUBLIC_DEMO_LOGIN;
+
 export default function LoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
+
+  function fillDemo() {
+    if (!DEMO_LOGIN) return;
+    const [demoEmail, demoPassword] = DEMO_LOGIN.split(" / ");
+    setEmail(demoEmail ?? "");
+    setPassword(demoPassword ?? "");
+  }
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -54,6 +65,20 @@ export default function LoginPage() {
           className="space-y-4 rounded-2xl border border-slate-700/60 bg-slate-800/40 p-8"
         >
           <h2 className="text-lg font-semibold">Sign in</h2>
+          {DEMO_LOGIN && (
+            <div className="rounded-lg border border-sky-500/40 bg-sky-500/10 px-4 py-3 text-sm text-sky-200">
+              <p>
+                Just exploring? A demo ISP with 60 scored customers is ready.
+              </p>
+              <button
+                type="button"
+                onClick={fillDemo}
+                className="mt-2 rounded-md bg-sky-500 px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-sky-400"
+              >
+                Use demo account
+              </button>
+            </div>
+          )}
           <ErrorNote message={error} />
           <div>
             <label className="mb-1 block text-sm text-slate-400">Email</label>
