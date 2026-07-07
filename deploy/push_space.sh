@@ -35,8 +35,17 @@ cp deploy/README.hf.md README.md
 printf '*.joblib filter=lfs diff=lfs merge=lfs -text\n' > .gitattributes
 git lfs install --local >/dev/null
 
+# The orphan checkout inherits main's index with the joblibs as plain blobs;
+# clearing and re-adding forces the LFS clean filter to run over them.
+git rm -r --cached --quiet .
 git add -A
 git commit -q -m "deploy: Hugging Face Space snapshot (multi-tenant SaaS + feedback loop)"
+
+# Sanity-check the artifacts really are LFS pointers before pushing
+if ! git lfs ls-files | grep -q 'model.joblib'; then
+  echo "model.joblib was not LFS-tracked — aborting." >&2
+  exit 1
+fi
 git push "$REMOTE" "$SNAPSHOT:main" --force
 
 echo "Pushed snapshot to '$REMOTE' main."
