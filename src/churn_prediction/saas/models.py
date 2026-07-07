@@ -11,10 +11,12 @@ from datetime import datetime, timezone
 
 from sqlalchemy import (
     JSON,
+    Boolean,
     DateTime,
     Float,
     ForeignKey,
     Integer,
+    LargeBinary,
     String,
     Text,
     UniqueConstraint,
@@ -97,6 +99,14 @@ class Customer(Base):
     explanations: Mapped[list] = mapped_column(JSON, nullable=True)
     scored_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=True)
 
+    # Ground-truth outcome recorded by the operator after the fact — this is
+    # the label that closes the feedback loop (scorecard + retraining).
+    # One of "churned" / "retained", or NULL while unresolved.
+    actual_outcome: Mapped[str] = mapped_column(String(10), nullable=True)
+    outcome_recorded_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=True
+    )
+
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_utcnow)
 
     organization: Mapped["Organization"] = relationship(back_populates="customers")
@@ -125,3 +135,31 @@ class OutreachMessage(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_utcnow)
 
     customer: Mapped["Customer"] = relationship(back_populates="outreach_messages")
+
+
+class TenantModel(Base):
+    """A per-organization churn model trained on that org's recorded outcomes.
+
+    Stored as a serialized joblib blob so it survives in whatever database the
+    tenant uses (SQLite or Postgres). Only a model that beat the base model on
+    the tenant's own held-out data is marked ``promoted`` and used for scoring.
+    """
+
+    __tablename__ = "tenant_models"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    org_id: Mapped[int] = mapped_column(ForeignKey("organizations.id"), nullable=False)
+
+    model_blob: Mapped[bytes] = mapped_column(LargeBinary, nullable=False)
+
+    # Evaluation on a held-out split of the tenant's labeled customers
+    n_train: Mapped[int] = mapped_column(Integer, default=0)
+    n_eval: Mapped[int] = mapped_column(Integer, default=0)
+    base_auc: Mapped[float] = mapped_column(Float, nullable=True)
+    tenant_auc: Mapped[float] = mapped_column(Float, nullable=True)
+
+    # True only when the tenant model outperformed the base model and is now
+    # the active model for this org's scoring.
+    promoted: Mapped[bool] = mapped_column(Boolean, default=False)
+
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_utcnow)

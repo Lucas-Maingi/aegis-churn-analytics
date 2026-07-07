@@ -1,61 +1,401 @@
 subscriber_id,customer_name,email_address,months_active,monthly_fee,plan_type,contract_type,payment_method,paperless_billing,tech_support_addon
-SUB-0001,Brian Kamau,brian.kamau@example.com,3,47.9,fiber,2 year,mpesa,no,no
-SUB-0002,Carol Kiprop,carol.kiprop@example.com,24,71.44,fiber,1 year,mpesa,yes,yes
-SUB-0003,Sam Kamau,sam.kamau@example.com,12,26.18,dsl,monthly,cash,yes,no
-SUB-0004,Henry Wanjiku,henry.wanjiku@example.com,12,25.99,dsl,2 year,mpesa,no,no
-SUB-0005,James Omondi,james.omondi@example.com,24,68.53,fiber,monthly,mpesa,yes,no
-SUB-0006,Sam Wanjiku,sam.wanjiku@example.com,24,86.36,fiber,2 year,mpesa,no,no
-SUB-0007,Oscar Chebet,oscar.chebet@example.com,12,40.54,dsl,1 year,card,no,yes
-SUB-0008,Carol Chebet,carol.chebet@example.com,48,88.39,fiber,monthly,cash,no,no
-SUB-0009,Carol Kamau,carol.kamau@example.com,18,30.76,dsl,2 year,direct debit,yes,no
-SUB-0010,Victor Kamau,victor.kamau@example.com,18,77.65,fiber,2 year,cash,no,no
-SUB-0011,Sam Muthoni,sam.muthoni@example.com,8,36.89,dsl,monthly,mpesa,no,no
-SUB-0012,Xavier Mwangi,xavier.mwangi@example.com,36,26.3,dsl,2 year,direct debit,no,no
-SUB-0013,Oscar Achieng,oscar.achieng@example.com,36,46.94,fiber,monthly,cash,yes,no
-SUB-0014,Esther Otieno,esther.otieno@example.com,4,88.05,fiber,1 year,direct debit,no,yes
-SUB-0015,Irene Njeri,irene.njeri@example.com,18,77.05,fiber,1 year,cash,no,no
-SUB-0016,Mark Otieno,mark.otieno@example.com,8,53.65,fiber,monthly,mpesa,yes,yes
-SUB-0017,Peter Chebet,peter.chebet@example.com,36,72.0,fiber,monthly,card,no,yes
-SUB-0018,Terry Chebet,terry.chebet@example.com,12,81.04,fiber,monthly,mpesa,yes,no
-SUB-0019,Mark Kiprop,mark.kiprop@example.com,60,36.19,dsl,1 year,mpesa,no,no
-SUB-0020,Grace Muthoni,grace.muthoni@example.com,1,43.81,fiber,monthly,mpesa,no,no
-SUB-0021,Esther Omondi,esther.omondi@example.com,2,65.01,fiber,monthly,card,yes,yes
-SUB-0022,Uma Mwangi,uma.mwangi@example.com,30,76.29,fiber,monthly,cash,no,no
-SUB-0023,Oscar Muthoni,oscar.muthoni@example.com,2,90.47,fiber,1 year,card,yes,yes
-SUB-0024,Irene Muthoni,irene.muthoni@example.com,48,75.28,fiber,monthly,cash,yes,yes
-SUB-0025,Ruth Wanjiku,ruth.wanjiku@example.com,8,27.93,dsl,2 year,card,yes,no
-SUB-0026,Felix Achieng,felix.achieng@example.com,24,47.33,fiber,monthly,cash,no,no
-SUB-0027,Yvonne Otieno,yvonne.otieno@example.com,30,89.35,fiber,monthly,direct debit,yes,yes
-SUB-0028,Alice Wanjiku,alice.wanjiku@example.com,18,32.11,dsl,monthly,direct debit,no,yes
-SUB-0029,Oscar Achieng,oscar.achieng@example.com,30,44.13,dsl,monthly,mpesa,yes,yes
-SUB-0030,Grace Muthoni,grace.muthoni@example.com,18,70.9,fiber,2 year,cash,yes,no
-SUB-0031,Carol Kamau,carol.kamau@example.com,8,40.99,dsl,1 year,mpesa,no,yes
-SUB-0032,Carol Kiprop,carol.kiprop@example.com,60,52.72,fiber,1 year,direct debit,yes,no
-SUB-0033,Alice Njeri,alice.njeri@example.com,3,94.79,fiber,2 year,direct debit,yes,no
-SUB-0034,Lydia Njeri,lydia.njeri@example.com,18,38.15,dsl,2 year,cash,yes,yes
-SUB-0035,Uma Kamau,uma.kamau@example.com,60,94.13,fiber,2 year,mpesa,no,yes
-SUB-0036,James Omondi,james.omondi@example.com,1,72.56,fiber,monthly,cash,no,no
-SUB-0037,Brian Achieng,brian.achieng@example.com,12,41.68,dsl,1 year,cash,no,no
-SUB-0038,Queen Wanjiku,queen.wanjiku@example.com,24,69.56,fiber,1 year,mpesa,yes,yes
-SUB-0039,Xavier Kamau,xavier.kamau@example.com,3,79.2,fiber,2 year,mpesa,no,no
-SUB-0040,Zach Kamau,zach.kamau@example.com,24,36.11,dsl,2 year,mpesa,yes,yes
-SUB-0041,Queen Muthoni,queen.muthoni@example.com,1,55.45,fiber,2 year,mpesa,yes,no
-SUB-0042,Terry Omondi,terry.omondi@example.com,30,59.47,fiber,monthly,card,no,no
-SUB-0043,Henry Omondi,henry.omondi@example.com,60,34.56,dsl,monthly,cash,yes,no
-SUB-0044,Oscar Achieng,oscar.achieng@example.com,12,68.65,fiber,monthly,mpesa,no,yes
-SUB-0045,David Njeri,david.njeri@example.com,36,74.08,fiber,monthly,mpesa,no,yes
-SUB-0046,David Kiprop,david.kiprop@example.com,4,54.93,fiber,1 year,mpesa,yes,yes
-SUB-0047,Mark Achieng,mark.achieng@example.com,12,44.88,dsl,1 year,mpesa,no,no
-SUB-0048,Kevin Omondi,kevin.omondi@example.com,48,75.98,fiber,1 year,direct debit,yes,no
-SUB-0049,Queen Kamau,queen.kamau@example.com,24,52.48,fiber,monthly,mpesa,yes,yes
-SUB-0050,Yvonne Njeri,yvonne.njeri@example.com,6,40.79,fiber,monthly,mpesa,no,no
-SUB-0051,Queen Chebet,queen.chebet@example.com,12,42.99,fiber,1 year,card,yes,no
-SUB-0052,Naomi Kamau,naomi.kamau@example.com,60,85.65,fiber,monthly,mpesa,yes,no
-SUB-0053,Carol Mwangi,carol.mwangi@example.com,30,90.69,fiber,monthly,direct debit,yes,no
-SUB-0054,Irene Chebet,irene.chebet@example.com,12,43.53,dsl,monthly,mpesa,yes,yes
-SUB-0055,Grace Mwangi,grace.mwangi@example.com,6,66.51,fiber,monthly,cash,yes,no
-SUB-0056,Irene Achieng,irene.achieng@example.com,24,53.44,fiber,monthly,card,yes,yes
-SUB-0057,Grace Omondi,grace.omondi@example.com,48,80.17,fiber,1 year,mpesa,no,yes
-SUB-0058,Peter Omondi,peter.omondi@example.com,36,33.64,dsl,1 year,cash,no,no
-SUB-0059,Wanjiru Njeri,wanjiru.njeri@example.com,4,75.28,fiber,1 year,card,yes,yes
-SUB-0060,Irene Kiprop,irene.kiprop@example.com,2,83.76,fiber,monthly,mpesa,yes,no
+SUB-0001,Dennis Muthoni,dennis.muthoni.1@example.com,54,87.84,fiber,monthly,cash,yes,yes
+SUB-0002,Lydia Kamau,lydia.kamau.2@example.com,72,75.7,fiber,monthly,mpesa,yes,no
+SUB-0003,Zach Muthoni,zach.muthoni.3@example.com,72,23.17,dsl,1 year,cash,yes,no
+SUB-0004,Mark Otieno,mark.otieno.4@example.com,2,23.67,dsl,1 year,direct debit,no,no
+SUB-0005,Sam Muthoni,sam.muthoni.5@example.com,48,28.54,dsl,monthly,mpesa,no,no
+SUB-0006,Felix Cheruiyot,felix.cheruiyot.6@example.com,54,94.78,fiber,monthly,mpesa,no,yes
+SUB-0007,Sam Kiprop,sam.kiprop.7@example.com,3,65.02,fiber,monthly,mpesa,yes,yes
+SUB-0008,Zach Kiprop,zach.kiprop.8@example.com,2,35.16,dsl,monthly,mpesa,no,no
+SUB-0009,Henry Njeri,henry.njeri.9@example.com,1,93.2,fiber,monthly,mpesa,yes,yes
+SUB-0010,Mark Muthoni,mark.muthoni.10@example.com,4,41.1,dsl,monthly,mpesa,no,no
+SUB-0011,Alice Mwangi,alice.mwangi.11@example.com,30,94.5,fiber,2 year,cash,no,no
+SUB-0012,Grace Wanjiku,grace.wanjiku.12@example.com,4,64.71,fiber,2 year,mpesa,no,yes
+SUB-0013,Yvonne Kamau,yvonne.kamau.13@example.com,12,45.25,dsl,monthly,mpesa,yes,yes
+SUB-0014,Eunice Barasa,eunice.barasa.14@example.com,66,67.66,fiber,monthly,direct debit,yes,no
+SUB-0015,Peter Cheruiyot,peter.cheruiyot.15@example.com,8,85.89,fiber,monthly,cash,yes,no
+SUB-0016,Amina Wanjiku,amina.wanjiku.16@example.com,42,75.18,fiber,monthly,mpesa,no,yes
+SUB-0017,Faith Mwangi,faith.mwangi.17@example.com,10,33.78,dsl,monthly,mpesa,yes,yes
+SUB-0018,Ruth Otieno,ruth.otieno.18@example.com,66,75.72,fiber,2 year,mpesa,yes,yes
+SUB-0019,Lydia Mwangi,lydia.mwangi.19@example.com,8,48.02,fiber,monthly,cash,yes,yes
+SUB-0020,Hilda Chebet,hilda.chebet.20@example.com,36,94.02,fiber,2 year,cash,yes,no
+SUB-0021,Carol Wanjiku,carol.wanjiku.21@example.com,18,80.05,fiber,1 year,mpesa,no,yes
+SUB-0022,Esther Muthoni,esther.muthoni.22@example.com,3,94.97,fiber,monthly,mpesa,yes,no
+SUB-0023,Eunice Kamau,eunice.kamau.23@example.com,18,24.38,dsl,2 year,direct debit,yes,no
+SUB-0024,Yvonne Chebet,yvonne.chebet.24@example.com,66,78.11,fiber,monthly,mpesa,yes,yes
+SUB-0025,Victor Kiprop,victor.kiprop.25@example.com,10,88.99,fiber,2 year,cash,no,no
+SUB-0026,George Wanjiku,george.wanjiku.26@example.com,2,36.52,dsl,monthly,mpesa,no,yes
+SUB-0027,Faith Mwangi,faith.mwangi.27@example.com,3,35.92,dsl,2 year,card,no,yes
+SUB-0028,Victor Wafula,victor.wafula.28@example.com,48,53.48,fiber,2 year,direct debit,yes,no
+SUB-0029,Mark Otieno,mark.otieno.29@example.com,6,39.76,dsl,monthly,cash,no,yes
+SUB-0030,Carol Cheruiyot,carol.cheruiyot.30@example.com,18,86.85,fiber,monthly,card,yes,yes
+SUB-0031,Yvonne Wafula,yvonne.wafula.31@example.com,6,86.54,fiber,monthly,card,no,no
+SUB-0032,Carol Wafula,carol.wafula.32@example.com,10,46.44,dsl,1 year,cash,no,no
+SUB-0033,Zach Muthoni,zach.muthoni.33@example.com,1,39.95,dsl,monthly,card,yes,no
+SUB-0034,Grace Wafula,grace.wafula.34@example.com,72,25.23,dsl,monthly,card,yes,no
+SUB-0035,Alice Nyong,alice.nyong.35@example.com,42,57.8,fiber,monthly,mpesa,yes,yes
+SUB-0036,Hilda Omondi,hilda.omondi.36@example.com,54,41.52,dsl,1 year,mpesa,no,no
+SUB-0037,Yvonne Njeri,yvonne.njeri.37@example.com,8,24.44,dsl,monthly,mpesa,yes,no
+SUB-0038,Victor Muthoni,victor.muthoni.38@example.com,48,84.84,fiber,monthly,mpesa,yes,no
+SUB-0039,Henry Otieno,henry.otieno.39@example.com,72,47.88,dsl,monthly,direct debit,yes,no
+SUB-0040,Brian Achieng,brian.achieng.40@example.com,12,58.09,fiber,monthly,mpesa,no,no
+SUB-0041,Brian Otieno,brian.otieno.41@example.com,10,69.37,fiber,1 year,mpesa,no,no
+SUB-0042,Irene Muthoni,irene.muthoni.42@example.com,12,79.33,fiber,monthly,cash,no,no
+SUB-0043,Collins Omondi,collins.omondi.43@example.com,2,82.89,fiber,monthly,cash,yes,no
+SUB-0044,Yvonne Barasa,yvonne.barasa.44@example.com,54,29.18,dsl,2 year,cash,yes,no
+SUB-0045,Faith Otieno,faith.otieno.45@example.com,54,71.21,fiber,monthly,mpesa,yes,no
+SUB-0046,Zach Omondi,zach.omondi.46@example.com,2,70.8,fiber,1 year,cash,yes,no
+SUB-0047,Dennis Kiprop,dennis.kiprop.47@example.com,2,48.06,dsl,2 year,direct debit,no,yes
+SUB-0048,Eunice Omondi,eunice.omondi.48@example.com,12,66.68,fiber,monthly,mpesa,no,no
+SUB-0049,Brian Wanjiku,brian.wanjiku.49@example.com,3,41.66,dsl,monthly,mpesa,yes,no
+SUB-0050,Faith Kamau,faith.kamau.50@example.com,18,57.22,fiber,monthly,cash,yes,no
+SUB-0051,Brenda Wanjiku,brenda.wanjiku.51@example.com,6,41.64,dsl,monthly,direct debit,yes,no
+SUB-0052,Hilda Otieno,hilda.otieno.52@example.com,54,39.88,dsl,2 year,cash,yes,yes
+SUB-0053,Uma Chebet,uma.chebet.53@example.com,18,47.27,dsl,monthly,mpesa,yes,no
+SUB-0054,Peter Njeri,peter.njeri.54@example.com,3,51.7,fiber,1 year,card,no,yes
+SUB-0055,Irene Otieno,irene.otieno.55@example.com,30,37.21,dsl,monthly,mpesa,yes,yes
+SUB-0056,George Wafula,george.wafula.56@example.com,18,25.23,dsl,1 year,cash,yes,no
+SUB-0057,George Chebet,george.chebet.57@example.com,1,46.87,fiber,monthly,mpesa,yes,yes
+SUB-0058,Grace Chebet,grace.chebet.58@example.com,4,94.52,fiber,monthly,direct debit,yes,no
+SUB-0059,Wanjiru Kiprop,wanjiru.kiprop.59@example.com,36,66.32,fiber,monthly,card,yes,no
+SUB-0060,Dennis Achieng,dennis.achieng.60@example.com,6,54.06,fiber,1 year,direct debit,yes,no
+SUB-0061,Felix Nyong,felix.nyong.61@example.com,1,61.18,fiber,2 year,direct debit,yes,no
+SUB-0062,Henry Cheruiyot,henry.cheruiyot.62@example.com,10,29.83,dsl,1 year,mpesa,no,yes
+SUB-0063,Brenda Nyong,brenda.nyong.63@example.com,54,79.74,fiber,monthly,mpesa,yes,yes
+SUB-0064,Wanjiru Wafula,wanjiru.wafula.64@example.com,42,50.04,fiber,2 year,mpesa,yes,yes
+SUB-0065,Zach Chebet,zach.chebet.65@example.com,12,31.46,dsl,monthly,mpesa,no,no
+SUB-0066,Zach Chebet,zach.chebet.66@example.com,6,80.06,fiber,monthly,cash,yes,no
+SUB-0067,Mark Wafula,mark.wafula.67@example.com,24,70.24,fiber,monthly,mpesa,no,yes
+SUB-0068,Amina Omondi,amina.omondi.68@example.com,54,37.13,dsl,monthly,mpesa,no,no
+SUB-0069,Carol Kiprop,carol.kiprop.69@example.com,66,78.42,fiber,2 year,mpesa,no,no
+SUB-0070,David Kiprop,david.kiprop.70@example.com,42,72.1,fiber,2 year,direct debit,no,no
+SUB-0071,Eunice Wafula,eunice.wafula.71@example.com,18,71.52,fiber,monthly,card,no,yes
+SUB-0072,Kevin Kiprop,kevin.kiprop.72@example.com,60,23.2,dsl,1 year,direct debit,yes,no
+SUB-0073,Uma Kamau,uma.kamau.73@example.com,2,38.29,dsl,1 year,mpesa,no,no
+SUB-0074,Grace Nyong,grace.nyong.74@example.com,8,47.27,fiber,1 year,direct debit,yes,no
+SUB-0075,David Chebet,david.chebet.75@example.com,66,41.78,dsl,monthly,mpesa,yes,no
+SUB-0076,Collins Njeri,collins.njeri.76@example.com,3,51.22,fiber,1 year,direct debit,no,no
+SUB-0077,Hilda Barasa,hilda.barasa.77@example.com,18,43.78,dsl,2 year,card,yes,yes
+SUB-0078,Wanjiru Mwangi,wanjiru.mwangi.78@example.com,12,84.22,fiber,monthly,cash,yes,no
+SUB-0079,George Wafula,george.wafula.79@example.com,6,48.65,dsl,2 year,mpesa,yes,yes
+SUB-0080,Grace Otieno,grace.otieno.80@example.com,1,76.17,fiber,monthly,mpesa,yes,no
+SUB-0081,Xavier Muthoni,xavier.muthoni.81@example.com,8,76.56,fiber,monthly,mpesa,no,no
+SUB-0082,Collins Nyong,collins.nyong.82@example.com,2,44.46,dsl,2 year,mpesa,no,no
+SUB-0083,Uma Mwangi,uma.mwangi.83@example.com,3,63.45,fiber,monthly,mpesa,no,no
+SUB-0084,Felix Omondi,felix.omondi.84@example.com,36,88.76,fiber,monthly,cash,no,no
+SUB-0085,Naomi Wafula,naomi.wafula.85@example.com,1,48.8,fiber,1 year,card,no,no
+SUB-0086,Oscar Achieng,oscar.achieng.86@example.com,12,46.69,dsl,1 year,card,no,no
+SUB-0087,Ruth Muthoni,ruth.muthoni.87@example.com,36,73.46,fiber,monthly,card,no,no
+SUB-0088,Xavier Barasa,xavier.barasa.88@example.com,48,57.42,fiber,monthly,card,no,no
+SUB-0089,Yvonne Omondi,yvonne.omondi.89@example.com,60,32.31,dsl,monthly,cash,yes,yes
+SUB-0090,Oscar Omondi,oscar.omondi.90@example.com,12,44.73,dsl,monthly,mpesa,no,no
+SUB-0091,Terry Nyong,terry.nyong.91@example.com,30,23.79,dsl,monthly,card,yes,yes
+SUB-0092,James Kamau,james.kamau.92@example.com,12,49.23,fiber,1 year,direct debit,yes,no
+SUB-0093,Dennis Kiprop,dennis.kiprop.93@example.com,48,61.91,fiber,monthly,card,yes,no
+SUB-0094,Carol Kiprop,carol.kiprop.94@example.com,2,80.41,fiber,1 year,card,yes,no
+SUB-0095,Brian Omondi,brian.omondi.95@example.com,36,48.82,dsl,monthly,mpesa,yes,no
+SUB-0096,Kevin Wafula,kevin.wafula.96@example.com,3,57.29,fiber,monthly,mpesa,no,yes
+SUB-0097,David Muthoni,david.muthoni.97@example.com,12,58.7,fiber,monthly,mpesa,no,no
+SUB-0098,Dennis Wanjiku,dennis.wanjiku.98@example.com,4,47.54,dsl,1 year,mpesa,no,yes
+SUB-0099,Eunice Chebet,eunice.chebet.99@example.com,6,74.42,fiber,monthly,direct debit,yes,no
+SUB-0100,Eunice Barasa,eunice.barasa.100@example.com,12,76.34,fiber,monthly,direct debit,no,no
+SUB-0101,Oscar Kiprop,oscar.kiprop.101@example.com,2,35.51,dsl,monthly,mpesa,no,no
+SUB-0102,David Wafula,david.wafula.102@example.com,10,44.05,dsl,2 year,mpesa,no,no
+SUB-0103,Kevin Kiprop,kevin.kiprop.103@example.com,8,80.66,fiber,monthly,card,yes,yes
+SUB-0104,Ruth Omondi,ruth.omondi.104@example.com,48,25.67,dsl,monthly,mpesa,yes,yes
+SUB-0105,Felix Achieng,felix.achieng.105@example.com,3,45.02,dsl,monthly,cash,yes,no
+SUB-0106,George Mwangi,george.mwangi.106@example.com,2,48.75,dsl,monthly,mpesa,no,yes
+SUB-0107,Amina Omondi,amina.omondi.107@example.com,36,27.84,dsl,monthly,card,no,no
+SUB-0108,Esther Achieng,esther.achieng.108@example.com,12,94.86,fiber,monthly,mpesa,yes,no
+SUB-0109,Alice Barasa,alice.barasa.109@example.com,3,40.31,dsl,monthly,direct debit,yes,yes
+SUB-0110,Naomi Chebet,naomi.chebet.110@example.com,1,87.8,fiber,monthly,direct debit,no,no
+SUB-0111,Queen Otieno,queen.otieno.111@example.com,54,40.67,dsl,monthly,mpesa,no,no
+SUB-0112,Victor Muthoni,victor.muthoni.112@example.com,42,81.19,fiber,2 year,mpesa,yes,yes
+SUB-0113,Lydia Otieno,lydia.otieno.113@example.com,72,80.41,fiber,monthly,direct debit,yes,yes
+SUB-0114,Esther Achieng,esther.achieng.114@example.com,3,66.69,fiber,2 year,direct debit,yes,no
+SUB-0115,Amina Chebet,amina.chebet.115@example.com,24,35.52,dsl,monthly,direct debit,no,no
+SUB-0116,Queen Achieng,queen.achieng.116@example.com,66,36.84,dsl,monthly,card,no,yes
+SUB-0117,Sam Barasa,sam.barasa.117@example.com,48,61.64,fiber,monthly,mpesa,no,no
+SUB-0118,George Omondi,george.omondi.118@example.com,54,28.55,dsl,monthly,mpesa,yes,no
+SUB-0119,Irene Otieno,irene.otieno.119@example.com,6,83.83,fiber,monthly,direct debit,no,no
+SUB-0120,Henry Muthoni,henry.muthoni.120@example.com,18,29.45,dsl,2 year,mpesa,yes,no
+SUB-0121,Queen Njeri,queen.njeri.121@example.com,54,48.18,fiber,2 year,card,yes,yes
+SUB-0122,Xavier Otieno,xavier.otieno.122@example.com,12,41.18,dsl,1 year,card,yes,yes
+SUB-0123,Zach Njeri,zach.njeri.123@example.com,2,67.72,fiber,1 year,mpesa,no,no
+SUB-0124,Brian Njeri,brian.njeri.124@example.com,24,39.23,dsl,monthly,direct debit,yes,yes
+SUB-0125,Victor Omondi,victor.omondi.125@example.com,60,65.29,fiber,monthly,mpesa,no,yes
+SUB-0126,Faith Chebet,faith.chebet.126@example.com,3,33.29,dsl,monthly,card,no,no
+SUB-0127,Sam Muthoni,sam.muthoni.127@example.com,60,43.22,dsl,2 year,direct debit,no,no
+SUB-0128,Hilda Achieng,hilda.achieng.128@example.com,3,90.26,fiber,monthly,direct debit,no,no
+SUB-0129,Brenda Cheruiyot,brenda.cheruiyot.129@example.com,2,59.8,fiber,monthly,card,no,no
+SUB-0130,Collins Otieno,collins.otieno.130@example.com,8,25.48,dsl,monthly,direct debit,yes,no
+SUB-0131,Zach Otieno,zach.otieno.131@example.com,8,72.25,fiber,2 year,card,no,no
+SUB-0132,Henry Kamau,henry.kamau.132@example.com,72,82.33,fiber,monthly,mpesa,yes,no
+SUB-0133,Peter Cheruiyot,peter.cheruiyot.133@example.com,36,45.03,fiber,monthly,card,yes,yes
+SUB-0134,Wanjiru Cheruiyot,wanjiru.cheruiyot.134@example.com,48,33.12,dsl,1 year,mpesa,no,yes
+SUB-0135,James Nyong,james.nyong.135@example.com,12,31.08,dsl,2 year,direct debit,yes,yes
+SUB-0136,Wanjiru Muthoni,wanjiru.muthoni.136@example.com,2,27.47,dsl,monthly,cash,yes,no
+SUB-0137,Terry Cheruiyot,terry.cheruiyot.137@example.com,2,77.51,fiber,1 year,card,no,no
+SUB-0138,Kevin Otieno,kevin.otieno.138@example.com,36,65.76,fiber,2 year,mpesa,yes,yes
+SUB-0139,Ruth Achieng,ruth.achieng.139@example.com,48,40.61,dsl,1 year,cash,yes,no
+SUB-0140,Lydia Wafula,lydia.wafula.140@example.com,12,89.77,fiber,monthly,mpesa,yes,no
+SUB-0141,Carol Wanjiku,carol.wanjiku.141@example.com,48,48.69,fiber,1 year,card,no,no
+SUB-0142,Mark Otieno,mark.otieno.142@example.com,4,59.26,fiber,monthly,cash,yes,yes
+SUB-0143,Yvonne Wanjiku,yvonne.wanjiku.143@example.com,2,39.41,dsl,2 year,direct debit,yes,yes
+SUB-0144,Uma Wafula,uma.wafula.144@example.com,72,90.48,fiber,monthly,mpesa,no,no
+SUB-0145,Lydia Chebet,lydia.chebet.145@example.com,48,42.84,dsl,1 year,mpesa,yes,no
+SUB-0146,Queen Nyong,queen.nyong.146@example.com,36,72.39,fiber,1 year,mpesa,no,no
+SUB-0147,Queen Wanjiku,queen.wanjiku.147@example.com,60,75.17,fiber,monthly,mpesa,no,no
+SUB-0148,Faith Nyong,faith.nyong.148@example.com,3,75.42,fiber,monthly,direct debit,no,no
+SUB-0149,Peter Chebet,peter.chebet.149@example.com,3,90.37,fiber,monthly,card,no,yes
+SUB-0150,Queen Nyong,queen.nyong.150@example.com,66,81.92,fiber,1 year,mpesa,yes,no
+SUB-0151,Dennis Wanjiku,dennis.wanjiku.151@example.com,42,79.53,fiber,monthly,direct debit,no,no
+SUB-0152,Irene Njeri,irene.njeri.152@example.com,2,25.6,dsl,1 year,cash,yes,yes
+SUB-0153,Zach Omondi,zach.omondi.153@example.com,48,52.08,fiber,monthly,direct debit,yes,no
+SUB-0154,Queen Kamau,queen.kamau.154@example.com,66,28.44,dsl,monthly,mpesa,no,no
+SUB-0155,Naomi Wanjiku,naomi.wanjiku.155@example.com,18,30.65,dsl,monthly,cash,yes,no
+SUB-0156,Lydia Muthoni,lydia.muthoni.156@example.com,60,91.2,fiber,2 year,mpesa,no,no
+SUB-0157,Lydia Nyong,lydia.nyong.157@example.com,30,62.37,fiber,monthly,mpesa,no,yes
+SUB-0158,Eunice Muthoni,eunice.muthoni.158@example.com,36,82.98,fiber,monthly,mpesa,no,yes
+SUB-0159,Ruth Achieng,ruth.achieng.159@example.com,2,47.36,fiber,2 year,cash,yes,no
+SUB-0160,Naomi Mwangi,naomi.mwangi.160@example.com,48,33.0,dsl,monthly,mpesa,yes,no
+SUB-0161,Henry Wanjiku,henry.wanjiku.161@example.com,3,43.44,dsl,2 year,direct debit,no,yes
+SUB-0162,Hilda Wafula,hilda.wafula.162@example.com,12,29.18,dsl,monthly,direct debit,yes,no
+SUB-0163,Carol Otieno,carol.otieno.163@example.com,48,74.77,fiber,monthly,direct debit,no,no
+SUB-0164,Collins Wafula,collins.wafula.164@example.com,54,58.02,fiber,monthly,mpesa,no,no
+SUB-0165,Wanjiru Otieno,wanjiru.otieno.165@example.com,3,64.33,fiber,monthly,card,no,no
+SUB-0166,Eunice Chebet,eunice.chebet.166@example.com,1,82.36,fiber,monthly,card,yes,no
+SUB-0167,Xavier Otieno,xavier.otieno.167@example.com,18,78.33,fiber,1 year,card,yes,no
+SUB-0168,Yvonne Achieng,yvonne.achieng.168@example.com,42,48.01,fiber,monthly,card,yes,yes
+SUB-0169,Wanjiru Wafula,wanjiru.wafula.169@example.com,42,83.41,fiber,1 year,cash,yes,no
+SUB-0170,Queen Cheruiyot,queen.cheruiyot.170@example.com,3,35.39,dsl,2 year,card,yes,no
+SUB-0171,Ruth Wanjiku,ruth.wanjiku.171@example.com,2,90.62,fiber,monthly,cash,no,no
+SUB-0172,Carol Achieng,carol.achieng.172@example.com,10,48.61,fiber,monthly,card,no,yes
+SUB-0173,Yvonne Chebet,yvonne.chebet.173@example.com,4,39.98,dsl,monthly,card,yes,no
+SUB-0174,Amina Chebet,amina.chebet.174@example.com,2,39.57,dsl,monthly,card,yes,no
+SUB-0175,Yvonne Wanjiku,yvonne.wanjiku.175@example.com,24,49.06,dsl,1 year,cash,no,no
+SUB-0176,Mark Mwangi,mark.mwangi.176@example.com,1,52.49,fiber,monthly,mpesa,yes,no
+SUB-0177,Faith Barasa,faith.barasa.177@example.com,24,22.1,dsl,1 year,cash,yes,no
+SUB-0178,Grace Wanjiku,grace.wanjiku.178@example.com,12,58.2,fiber,monthly,mpesa,no,no
+SUB-0179,Faith Nyong,faith.nyong.179@example.com,4,26.47,dsl,monthly,card,no,yes
+SUB-0180,Peter Achieng,peter.achieng.180@example.com,54,35.95,dsl,monthly,mpesa,yes,no
+SUB-0181,Terry Kamau,terry.kamau.181@example.com,3,46.8,dsl,2 year,cash,no,yes
+SUB-0182,David Achieng,david.achieng.182@example.com,30,46.36,dsl,monthly,cash,no,yes
+SUB-0183,Uma Njeri,uma.njeri.183@example.com,18,42.04,dsl,monthly,mpesa,yes,no
+SUB-0184,Ruth Nyong,ruth.nyong.184@example.com,3,76.15,fiber,monthly,mpesa,no,no
+SUB-0185,Alice Muthoni,alice.muthoni.185@example.com,72,54.23,fiber,1 year,mpesa,no,no
+SUB-0186,Yvonne Wafula,yvonne.wafula.186@example.com,72,78.29,fiber,2 year,mpesa,yes,no
+SUB-0187,Wanjiru Cheruiyot,wanjiru.cheruiyot.187@example.com,2,54.69,fiber,monthly,mpesa,no,no
+SUB-0188,Kevin Achieng,kevin.achieng.188@example.com,54,87.78,fiber,monthly,direct debit,no,yes
+SUB-0189,Yvonne Wafula,yvonne.wafula.189@example.com,30,43.43,dsl,1 year,cash,no,no
+SUB-0190,Queen Muthoni,queen.muthoni.190@example.com,4,86.69,fiber,monthly,mpesa,no,no
+SUB-0191,Zach Mwangi,zach.mwangi.191@example.com,60,52.18,fiber,monthly,mpesa,no,yes
+SUB-0192,Esther Wanjiku,esther.wanjiku.192@example.com,54,47.56,fiber,2 year,card,yes,yes
+SUB-0193,Mark Barasa,mark.barasa.193@example.com,3,94.86,fiber,monthly,mpesa,no,no
+SUB-0194,Queen Mwangi,queen.mwangi.194@example.com,54,47.88,fiber,monthly,card,yes,no
+SUB-0195,Brian Njeri,brian.njeri.195@example.com,2,53.79,fiber,monthly,mpesa,no,no
+SUB-0196,Dennis Wanjiku,dennis.wanjiku.196@example.com,12,23.76,dsl,2 year,mpesa,no,yes
+SUB-0197,Faith Kiprop,faith.kiprop.197@example.com,8,84.61,fiber,monthly,cash,yes,no
+SUB-0198,Brian Wanjiku,brian.wanjiku.198@example.com,30,57.52,fiber,monthly,mpesa,no,no
+SUB-0199,Xavier Wafula,xavier.wafula.199@example.com,10,85.54,fiber,1 year,card,no,yes
+SUB-0200,Queen Achieng,queen.achieng.200@example.com,12,38.64,dsl,monthly,mpesa,yes,yes
+SUB-0201,Lydia Achieng,lydia.achieng.201@example.com,12,79.01,fiber,monthly,mpesa,no,no
+SUB-0202,David Kiprop,david.kiprop.202@example.com,1,64.99,fiber,monthly,cash,yes,yes
+SUB-0203,Grace Chebet,grace.chebet.203@example.com,2,82.71,fiber,2 year,direct debit,no,no
+SUB-0204,Lydia Barasa,lydia.barasa.204@example.com,30,84.02,fiber,monthly,direct debit,no,no
+SUB-0205,James Cheruiyot,james.cheruiyot.205@example.com,48,49.71,dsl,1 year,direct debit,yes,yes
+SUB-0206,Brenda Omondi,brenda.omondi.206@example.com,36,87.82,fiber,2 year,mpesa,yes,no
+SUB-0207,Dennis Kiprop,dennis.kiprop.207@example.com,36,34.21,dsl,2 year,cash,yes,no
+SUB-0208,Carol Omondi,carol.omondi.208@example.com,2,70.76,fiber,1 year,direct debit,no,no
+SUB-0209,Dennis Achieng,dennis.achieng.209@example.com,12,52.6,fiber,2 year,cash,no,yes
+SUB-0210,Irene Nyong,irene.nyong.210@example.com,54,65.1,fiber,2 year,direct debit,yes,yes
+SUB-0211,James Barasa,james.barasa.211@example.com,72,44.12,dsl,monthly,mpesa,no,no
+SUB-0212,Queen Omondi,queen.omondi.212@example.com,2,80.58,fiber,1 year,direct debit,yes,no
+SUB-0213,Peter Kamau,peter.kamau.213@example.com,6,35.69,dsl,monthly,direct debit,no,no
+SUB-0214,Esther Nyong,esther.nyong.214@example.com,42,87.75,fiber,2 year,card,yes,yes
+SUB-0215,Oscar Barasa,oscar.barasa.215@example.com,18,92.76,fiber,monthly,direct debit,yes,no
+SUB-0216,Faith Kamau,faith.kamau.216@example.com,66,68.28,fiber,monthly,mpesa,no,no
+SUB-0217,Brenda Kiprop,brenda.kiprop.217@example.com,6,37.68,dsl,monthly,card,no,no
+SUB-0218,Naomi Njeri,naomi.njeri.218@example.com,66,27.84,dsl,1 year,mpesa,no,yes
+SUB-0219,Wanjiru Mwangi,wanjiru.mwangi.219@example.com,10,92.05,fiber,monthly,mpesa,yes,no
+SUB-0220,Mark Njeri,mark.njeri.220@example.com,12,83.49,fiber,monthly,card,no,no
+SUB-0221,George Kamau,george.kamau.221@example.com,10,67.84,fiber,2 year,card,no,yes
+SUB-0222,Sam Barasa,sam.barasa.222@example.com,12,51.16,fiber,monthly,direct debit,yes,no
+SUB-0223,Collins Wafula,collins.wafula.223@example.com,30,75.06,fiber,monthly,direct debit,no,yes
+SUB-0224,Alice Wafula,alice.wafula.224@example.com,10,59.65,fiber,1 year,mpesa,no,no
+SUB-0225,Ruth Achieng,ruth.achieng.225@example.com,10,64.4,fiber,monthly,cash,yes,no
+SUB-0226,Xavier Wanjiku,xavier.wanjiku.226@example.com,6,49.42,fiber,monthly,cash,no,no
+SUB-0227,James Muthoni,james.muthoni.227@example.com,1,40.7,dsl,monthly,mpesa,no,no
+SUB-0228,Oscar Wanjiku,oscar.wanjiku.228@example.com,72,75.28,fiber,2 year,direct debit,no,no
+SUB-0229,Esther Muthoni,esther.muthoni.229@example.com,3,49.93,dsl,1 year,mpesa,yes,no
+SUB-0230,Felix Wanjiku,felix.wanjiku.230@example.com,48,33.05,dsl,monthly,cash,no,no
+SUB-0231,Henry Kiprop,henry.kiprop.231@example.com,42,43.73,dsl,monthly,mpesa,no,no
+SUB-0232,Amina Omondi,amina.omondi.232@example.com,1,25.05,dsl,monthly,mpesa,yes,no
+SUB-0233,Peter Njeri,peter.njeri.233@example.com,3,48.39,fiber,1 year,cash,no,yes
+SUB-0234,Dennis Wanjiku,dennis.wanjiku.234@example.com,8,38.54,dsl,2 year,cash,no,yes
+SUB-0235,Grace Nyong,grace.nyong.235@example.com,3,87.54,fiber,2 year,mpesa,yes,no
+SUB-0236,Henry Kiprop,henry.kiprop.236@example.com,30,75.9,fiber,2 year,mpesa,yes,no
+SUB-0237,Hilda Chebet,hilda.chebet.237@example.com,24,52.83,fiber,monthly,mpesa,no,no
+SUB-0238,Carol Kiprop,carol.kiprop.238@example.com,72,43.35,dsl,monthly,mpesa,yes,yes
+SUB-0239,Faith Otieno,faith.otieno.239@example.com,30,61.44,fiber,1 year,cash,yes,no
+SUB-0240,Terry Mwangi,terry.mwangi.240@example.com,3,64.72,fiber,1 year,card,yes,no
+SUB-0241,Brenda Achieng,brenda.achieng.241@example.com,42,64.23,fiber,monthly,mpesa,no,no
+SUB-0242,Uma Kiprop,uma.kiprop.242@example.com,48,64.11,fiber,1 year,mpesa,no,yes
+SUB-0243,Hilda Muthoni,hilda.muthoni.243@example.com,8,70.99,fiber,1 year,card,no,no
+SUB-0244,Peter Achieng,peter.achieng.244@example.com,60,62.86,fiber,2 year,card,no,yes
+SUB-0245,Faith Kamau,faith.kamau.245@example.com,2,30.82,dsl,monthly,card,yes,no
+SUB-0246,Brenda Wafula,brenda.wafula.246@example.com,60,58.51,fiber,2 year,direct debit,yes,yes
+SUB-0247,Oscar Barasa,oscar.barasa.247@example.com,2,33.11,dsl,monthly,mpesa,no,yes
+SUB-0248,David Nyong,david.nyong.248@example.com,12,77.11,fiber,monthly,direct debit,yes,no
+SUB-0249,Naomi Chebet,naomi.chebet.249@example.com,72,42.1,dsl,monthly,direct debit,no,no
+SUB-0250,Felix Muthoni,felix.muthoni.250@example.com,2,26.83,dsl,1 year,mpesa,no,no
+SUB-0251,Esther Barasa,esther.barasa.251@example.com,3,34.46,dsl,monthly,card,yes,no
+SUB-0252,Naomi Kamau,naomi.kamau.252@example.com,72,73.01,fiber,monthly,cash,yes,no
+SUB-0253,Carol Kiprop,carol.kiprop.253@example.com,10,68.62,fiber,2 year,mpesa,no,no
+SUB-0254,Eunice Kamau,eunice.kamau.254@example.com,24,36.32,dsl,monthly,mpesa,no,yes
+SUB-0255,Yvonne Chebet,yvonne.chebet.255@example.com,4,77.57,fiber,1 year,direct debit,no,no
+SUB-0256,James Muthoni,james.muthoni.256@example.com,18,43.58,dsl,1 year,direct debit,no,yes
+SUB-0257,Amina Chebet,amina.chebet.257@example.com,72,58.06,fiber,monthly,mpesa,no,no
+SUB-0258,Esther Omondi,esther.omondi.258@example.com,30,47.43,dsl,monthly,direct debit,no,no
+SUB-0259,Grace Wafula,grace.wafula.259@example.com,4,82.66,fiber,monthly,mpesa,yes,no
+SUB-0260,Victor Muthoni,victor.muthoni.260@example.com,4,72.58,fiber,monthly,card,no,yes
+SUB-0261,Wanjiru Kamau,wanjiru.kamau.261@example.com,6,49.61,dsl,monthly,mpesa,yes,no
+SUB-0262,Sam Chebet,sam.chebet.262@example.com,12,32.19,dsl,2 year,card,yes,yes
+SUB-0263,Sam Mwangi,sam.mwangi.263@example.com,54,89.47,fiber,monthly,mpesa,no,no
+SUB-0264,George Njeri,george.njeri.264@example.com,12,84.68,fiber,2 year,mpesa,yes,no
+SUB-0265,Queen Mwangi,queen.mwangi.265@example.com,4,71.73,fiber,monthly,card,yes,no
+SUB-0266,George Mwangi,george.mwangi.266@example.com,18,42.42,dsl,monthly,card,yes,yes
+SUB-0267,Esther Mwangi,esther.mwangi.267@example.com,60,92.02,fiber,2 year,mpesa,yes,yes
+SUB-0268,David Wafula,david.wafula.268@example.com,18,88.61,fiber,1 year,mpesa,yes,no
+SUB-0269,Brenda Omondi,brenda.omondi.269@example.com,48,72.12,fiber,1 year,mpesa,no,no
+SUB-0270,Faith Otieno,faith.otieno.270@example.com,3,33.68,dsl,monthly,direct debit,yes,no
+SUB-0271,Terry Mwangi,terry.mwangi.271@example.com,54,24.49,dsl,monthly,card,yes,no
+SUB-0272,Brian Chebet,brian.chebet.272@example.com,3,46.04,dsl,monthly,cash,no,no
+SUB-0273,Carol Kamau,carol.kamau.273@example.com,48,52.86,fiber,monthly,card,yes,no
+SUB-0274,Hilda Barasa,hilda.barasa.274@example.com,4,79.42,fiber,1 year,mpesa,yes,no
+SUB-0275,Oscar Kiprop,oscar.kiprop.275@example.com,6,49.31,dsl,monthly,mpesa,no,no
+SUB-0276,Xavier Omondi,xavier.omondi.276@example.com,8,29.34,dsl,1 year,cash,no,no
+SUB-0277,James Otieno,james.otieno.277@example.com,30,53.79,fiber,monthly,direct debit,yes,no
+SUB-0278,Queen Chebet,queen.chebet.278@example.com,8,78.91,fiber,monthly,card,yes,yes
+SUB-0279,Naomi Wafula,naomi.wafula.279@example.com,12,70.49,fiber,monthly,mpesa,yes,yes
+SUB-0280,Carol Kiprop,carol.kiprop.280@example.com,8,34.37,dsl,monthly,mpesa,no,no
+SUB-0281,Yvonne Njeri,yvonne.njeri.281@example.com,2,94.52,fiber,monthly,mpesa,no,no
+SUB-0282,Esther Muthoni,esther.muthoni.282@example.com,12,73.11,fiber,2 year,mpesa,yes,no
+SUB-0283,Kevin Njeri,kevin.njeri.283@example.com,2,66.24,fiber,monthly,mpesa,no,no
+SUB-0284,Irene Njeri,irene.njeri.284@example.com,12,25.88,dsl,1 year,card,yes,yes
+SUB-0285,Dennis Achieng,dennis.achieng.285@example.com,8,89.13,fiber,monthly,mpesa,no,yes
+SUB-0286,David Kamau,david.kamau.286@example.com,4,42.31,dsl,monthly,mpesa,yes,yes
+SUB-0287,Hilda Mwangi,hilda.mwangi.287@example.com,60,67.12,fiber,2 year,mpesa,yes,yes
+SUB-0288,Victor Wafula,victor.wafula.288@example.com,48,27.21,dsl,monthly,card,no,no
+SUB-0289,Faith Muthoni,faith.muthoni.289@example.com,36,31.81,dsl,monthly,mpesa,no,no
+SUB-0290,David Mwangi,david.mwangi.290@example.com,60,65.03,fiber,monthly,mpesa,no,no
+SUB-0291,Brenda Nyong,brenda.nyong.291@example.com,1,46.21,fiber,2 year,cash,yes,no
+SUB-0292,Carol Achieng,carol.achieng.292@example.com,1,53.32,fiber,monthly,cash,no,no
+SUB-0293,James Chebet,james.chebet.293@example.com,12,53.32,fiber,1 year,direct debit,no,no
+SUB-0294,Faith Otieno,faith.otieno.294@example.com,12,92.47,fiber,1 year,cash,yes,no
+SUB-0295,Uma Otieno,uma.otieno.295@example.com,12,83.26,fiber,monthly,direct debit,yes,no
+SUB-0296,Alice Achieng,alice.achieng.296@example.com,72,49.85,fiber,monthly,mpesa,no,no
+SUB-0297,Alice Wafula,alice.wafula.297@example.com,72,32.61,dsl,monthly,card,no,no
+SUB-0298,Uma Muthoni,uma.muthoni.298@example.com,36,23.58,dsl,1 year,mpesa,yes,no
+SUB-0299,Ruth Nyong,ruth.nyong.299@example.com,36,47.51,fiber,monthly,cash,no,no
+SUB-0300,Brenda Achieng,brenda.achieng.300@example.com,72,70.2,fiber,monthly,mpesa,no,no
+SUB-0301,George Omondi,george.omondi.301@example.com,12,87.06,fiber,monthly,mpesa,yes,no
+SUB-0302,Irene Wafula,irene.wafula.302@example.com,12,93.93,fiber,monthly,card,no,no
+SUB-0303,Peter Wanjiku,peter.wanjiku.303@example.com,42,60.16,fiber,2 year,mpesa,no,no
+SUB-0304,Esther Wafula,esther.wafula.304@example.com,24,48.11,dsl,monthly,card,no,no
+SUB-0305,Queen Cheruiyot,queen.cheruiyot.305@example.com,4,75.52,fiber,1 year,mpesa,yes,no
+SUB-0306,Alice Chebet,alice.chebet.306@example.com,24,84.27,fiber,monthly,direct debit,no,yes
+SUB-0307,Kevin Muthoni,kevin.muthoni.307@example.com,2,22.64,dsl,1 year,mpesa,yes,no
+SUB-0308,Uma Muthoni,uma.muthoni.308@example.com,3,36.44,dsl,monthly,mpesa,yes,no
+SUB-0309,David Wanjiku,david.wanjiku.309@example.com,3,31.26,dsl,monthly,cash,no,no
+SUB-0310,Naomi Omondi,naomi.omondi.310@example.com,12,25.06,dsl,2 year,mpesa,yes,yes
+SUB-0311,Hilda Otieno,hilda.otieno.311@example.com,2,35.24,dsl,monthly,cash,no,yes
+SUB-0312,Wanjiru Mwangi,wanjiru.mwangi.312@example.com,2,61.99,fiber,monthly,cash,no,yes
+SUB-0313,Felix Kamau,felix.kamau.313@example.com,42,47.66,dsl,monthly,direct debit,no,no
+SUB-0314,George Mwangi,george.mwangi.314@example.com,72,91.23,fiber,1 year,direct debit,yes,no
+SUB-0315,Lydia Omondi,lydia.omondi.315@example.com,2,75.76,fiber,2 year,cash,no,yes
+SUB-0316,Dennis Wanjiku,dennis.wanjiku.316@example.com,2,41.77,dsl,monthly,mpesa,no,yes
+SUB-0317,Alice Mwangi,alice.mwangi.317@example.com,2,72.52,fiber,monthly,cash,no,no
+SUB-0318,Peter Kiprop,peter.kiprop.318@example.com,42,38.05,dsl,1 year,mpesa,no,yes
+SUB-0319,Eunice Kiprop,eunice.kiprop.319@example.com,3,28.87,dsl,monthly,mpesa,no,no
+SUB-0320,Faith Chebet,faith.chebet.320@example.com,6,92.69,fiber,2 year,mpesa,no,no
+SUB-0321,Zach Barasa,zach.barasa.321@example.com,48,73.85,fiber,2 year,card,yes,no
+SUB-0322,Brenda Otieno,brenda.otieno.322@example.com,36,27.8,dsl,monthly,card,yes,no
+SUB-0323,Felix Muthoni,felix.muthoni.323@example.com,12,76.1,fiber,1 year,cash,no,no
+SUB-0324,Zach Wafula,zach.wafula.324@example.com,48,49.34,dsl,monthly,mpesa,no,yes
+SUB-0325,Dennis Kiprop,dennis.kiprop.325@example.com,66,77.79,fiber,monthly,card,yes,no
+SUB-0326,Victor Chebet,victor.chebet.326@example.com,60,94.0,fiber,1 year,mpesa,no,no
+SUB-0327,Oscar Barasa,oscar.barasa.327@example.com,2,75.68,fiber,monthly,mpesa,no,yes
+SUB-0328,Zach Kamau,zach.kamau.328@example.com,6,86.87,fiber,1 year,card,no,no
+SUB-0329,Kevin Wanjiku,kevin.wanjiku.329@example.com,54,65.38,fiber,monthly,cash,no,no
+SUB-0330,Victor Omondi,victor.omondi.330@example.com,1,58.72,fiber,2 year,card,yes,no
+SUB-0331,Sam Nyong,sam.nyong.331@example.com,42,40.57,dsl,2 year,mpesa,yes,no
+SUB-0332,Collins Chebet,collins.chebet.332@example.com,48,72.86,fiber,monthly,card,no,no
+SUB-0333,Kevin Cheruiyot,kevin.cheruiyot.333@example.com,1,60.02,fiber,monthly,mpesa,no,no
+SUB-0334,Brian Omondi,brian.omondi.334@example.com,60,71.87,fiber,monthly,direct debit,yes,no
+SUB-0335,Lydia Wanjiku,lydia.wanjiku.335@example.com,66,28.99,dsl,monthly,mpesa,yes,no
+SUB-0336,Brian Wafula,brian.wafula.336@example.com,42,47.88,fiber,1 year,card,yes,no
+SUB-0337,Naomi Barasa,naomi.barasa.337@example.com,12,61.85,fiber,monthly,card,yes,no
+SUB-0338,George Achieng,george.achieng.338@example.com,60,29.88,dsl,monthly,mpesa,no,yes
+SUB-0339,Brenda Njeri,brenda.njeri.339@example.com,12,44.06,dsl,2 year,cash,yes,no
+SUB-0340,Uma Barasa,uma.barasa.340@example.com,18,55.8,fiber,2 year,direct debit,no,yes
+SUB-0341,Esther Nyong,esther.nyong.341@example.com,2,87.51,fiber,2 year,cash,yes,yes
+SUB-0342,Faith Chebet,faith.chebet.342@example.com,18,83.08,fiber,monthly,direct debit,yes,no
+SUB-0343,Ruth Wanjiku,ruth.wanjiku.343@example.com,66,53.82,fiber,1 year,card,yes,no
+SUB-0344,Peter Achieng,peter.achieng.344@example.com,54,46.03,fiber,monthly,card,no,yes
+SUB-0345,Lydia Mwangi,lydia.mwangi.345@example.com,12,65.82,fiber,monthly,mpesa,yes,no
+SUB-0346,Collins Cheruiyot,collins.cheruiyot.346@example.com,12,72.25,fiber,1 year,mpesa,no,no
+SUB-0347,Hilda Chebet,hilda.chebet.347@example.com,10,68.43,fiber,monthly,mpesa,no,yes
+SUB-0348,Carol Chebet,carol.chebet.348@example.com,2,77.4,fiber,monthly,cash,yes,no
+SUB-0349,Xavier Cheruiyot,xavier.cheruiyot.349@example.com,54,41.14,dsl,2 year,mpesa,no,no
+SUB-0350,Mark Kamau,mark.kamau.350@example.com,60,94.57,fiber,monthly,cash,no,no
+SUB-0351,Sam Omondi,sam.omondi.351@example.com,12,46.95,fiber,monthly,mpesa,yes,yes
+SUB-0352,Henry Muthoni,henry.muthoni.352@example.com,24,80.74,fiber,monthly,direct debit,yes,no
+SUB-0353,Peter Wafula,peter.wafula.353@example.com,36,82.23,fiber,monthly,direct debit,no,no
+SUB-0354,Oscar Cheruiyot,oscar.cheruiyot.354@example.com,66,22.5,dsl,1 year,mpesa,yes,yes
+SUB-0355,Hilda Kamau,hilda.kamau.355@example.com,4,92.89,fiber,2 year,mpesa,no,yes
+SUB-0356,David Achieng,david.achieng.356@example.com,8,43.23,dsl,monthly,mpesa,yes,no
+SUB-0357,Uma Nyong,uma.nyong.357@example.com,42,40.06,dsl,monthly,mpesa,no,no
+SUB-0358,Terry Kiprop,terry.kiprop.358@example.com,2,88.3,fiber,2 year,card,no,no
+SUB-0359,Carol Otieno,carol.otieno.359@example.com,42,77.75,fiber,1 year,card,yes,no
+SUB-0360,Yvonne Mwangi,yvonne.mwangi.360@example.com,4,79.75,fiber,2 year,mpesa,no,no
+SUB-0361,Faith Chebet,faith.chebet.361@example.com,1,47.94,fiber,monthly,cash,no,yes
+SUB-0362,Victor Kiprop,victor.kiprop.362@example.com,66,63.56,fiber,monthly,cash,yes,yes
+SUB-0363,Peter Muthoni,peter.muthoni.363@example.com,72,73.25,fiber,monthly,mpesa,yes,no
+SUB-0364,Dennis Otieno,dennis.otieno.364@example.com,3,27.31,dsl,2 year,cash,no,no
+SUB-0365,Esther Njeri,esther.njeri.365@example.com,2,31.82,dsl,monthly,cash,yes,no
+SUB-0366,Felix Cheruiyot,felix.cheruiyot.366@example.com,72,64.05,fiber,monthly,card,yes,no
+SUB-0367,Henry Kiprop,henry.kiprop.367@example.com,4,54.55,fiber,monthly,cash,yes,yes
+SUB-0368,Yvonne Chebet,yvonne.chebet.368@example.com,24,33.47,dsl,1 year,mpesa,no,yes
+SUB-0369,Victor Wanjiku,victor.wanjiku.369@example.com,66,46.4,fiber,monthly,cash,no,yes
+SUB-0370,Xavier Cheruiyot,xavier.cheruiyot.370@example.com,3,53.02,fiber,monthly,mpesa,no,yes
+SUB-0371,Lydia Wafula,lydia.wafula.371@example.com,3,79.97,fiber,monthly,card,no,yes
+SUB-0372,Xavier Chebet,xavier.chebet.372@example.com,30,46.25,dsl,1 year,cash,no,no
+SUB-0373,James Mwangi,james.mwangi.373@example.com,72,29.55,dsl,monthly,cash,yes,yes
+SUB-0374,Ruth Otieno,ruth.otieno.374@example.com,2,34.16,dsl,monthly,cash,no,yes
+SUB-0375,Xavier Omondi,xavier.omondi.375@example.com,1,58.13,fiber,1 year,mpesa,no,yes
+SUB-0376,Henry Wanjiku,henry.wanjiku.376@example.com,12,81.68,fiber,1 year,card,no,no
+SUB-0377,Oscar Nyong,oscar.nyong.377@example.com,1,48.26,fiber,monthly,direct debit,no,no
+SUB-0378,Peter Achieng,peter.achieng.378@example.com,12,73.09,fiber,1 year,direct debit,yes,no
+SUB-0379,Kevin Wafula,kevin.wafula.379@example.com,6,25.52,dsl,monthly,direct debit,yes,no
+SUB-0380,David Achieng,david.achieng.380@example.com,18,93.4,fiber,monthly,mpesa,yes,no
+SUB-0381,Xavier Kamau,xavier.kamau.381@example.com,10,37.34,dsl,monthly,mpesa,no,yes
+SUB-0382,Kevin Omondi,kevin.omondi.382@example.com,4,87.64,fiber,monthly,mpesa,no,no
+SUB-0383,Brenda Omondi,brenda.omondi.383@example.com,72,81.43,fiber,1 year,mpesa,yes,no
+SUB-0384,Sam Wafula,sam.wafula.384@example.com,12,34.43,dsl,monthly,mpesa,yes,no
+SUB-0385,George Njeri,george.njeri.385@example.com,42,38.84,dsl,monthly,mpesa,yes,no
+SUB-0386,Sam Kamau,sam.kamau.386@example.com,3,94.53,fiber,monthly,cash,no,no
+SUB-0387,Eunice Barasa,eunice.barasa.387@example.com,42,91.47,fiber,monthly,mpesa,yes,no
+SUB-0388,Brenda Kamau,brenda.kamau.388@example.com,3,67.2,fiber,1 year,mpesa,no,no
+SUB-0389,Naomi Cheruiyot,naomi.cheruiyot.389@example.com,24,89.42,fiber,monthly,mpesa,no,yes
+SUB-0390,Esther Chebet,esther.chebet.390@example.com,3,89.52,fiber,1 year,mpesa,no,no
+SUB-0391,David Achieng,david.achieng.391@example.com,2,59.07,fiber,1 year,direct debit,yes,yes
+SUB-0392,Zach Nyong,zach.nyong.392@example.com,72,61.62,fiber,1 year,mpesa,yes,no
+SUB-0393,Esther Kiprop,esther.kiprop.393@example.com,30,55.42,fiber,2 year,direct debit,yes,no
+SUB-0394,Peter Njeri,peter.njeri.394@example.com,2,44.86,dsl,2 year,cash,no,yes
+SUB-0395,Queen Nyong,queen.nyong.395@example.com,12,88.74,fiber,monthly,direct debit,yes,no
+SUB-0396,Peter Barasa,peter.barasa.396@example.com,3,56.55,fiber,monthly,direct debit,no,yes
+SUB-0397,Peter Njeri,peter.njeri.397@example.com,8,93.73,fiber,monthly,cash,no,no
+SUB-0398,Xavier Kamau,xavier.kamau.398@example.com,18,47.51,dsl,1 year,card,no,no
+SUB-0399,Yvonne Wafula,yvonne.wafula.399@example.com,3,45.62,dsl,1 year,card,no,no
+SUB-0400,Terry Chebet,terry.chebet.400@example.com,4,91.06,fiber,monthly,mpesa,yes,no

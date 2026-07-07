@@ -37,6 +37,7 @@ from churn_prediction.models.explainer import ChurnExplainer
 from churn_prediction.saas.db import init_db
 from churn_prediction.saas.routes_auth import router as auth_router
 from churn_prediction.saas.routes_customers import router as customers_router
+from churn_prediction.saas.routes_model import router as model_router
 from churn_prediction.saas.routes_outreach import router as outreach_router
 
 # Set up logging
@@ -130,6 +131,7 @@ app.add_exception_handler(Exception, global_exception_handler)
 app.include_router(auth_router)
 app.include_router(customers_router)
 app.include_router(outreach_router)
+app.include_router(model_router)
 
 
 # ── API Routes ───────────────────────────────────────────────────────────────

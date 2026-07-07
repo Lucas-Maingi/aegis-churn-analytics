@@ -5,7 +5,7 @@ Pydantic request/response models for auth, customer management, and outreach.
 """
 
 from datetime import datetime
-from typing import List, Optional
+from typing import List, Literal, Optional
 
 from pydantic import BaseModel, EmailStr, Field
 
@@ -53,6 +53,7 @@ class CustomerDetail(CustomerSummary):
     features: dict
     explanations: Optional[list] = None
     scored_at: Optional[datetime] = None
+    actual_outcome: Optional[str] = None
 
 
 class TierCounts(BaseModel):
@@ -113,3 +114,59 @@ class OutreachMessageOut(BaseModel):
 class SendOutreachResponse(BaseModel):
     message: OutreachMessageOut
     detail: str
+
+
+# ── Feedback loop (outcomes, scorecard, retraining) ──────────────────────────
+
+
+class RecordOutcomeRequest(BaseModel):
+    customer_id: int
+    outcome: Literal["churned", "retained"]
+
+
+class TierActualChurn(BaseModel):
+    churned: int
+    total: int
+    rate: Optional[float] = None
+
+
+class ConfusionCounts(BaseModel):
+    tp: int
+    fp: int
+    fn: int
+    tn: int
+
+
+class ValidatedImprovement(BaseModel):
+    base_auc: Optional[float] = None
+    tenant_auc: Optional[float] = None
+    n_eval: int
+
+
+class ScorecardResponse(BaseModel):
+    active_model: Literal["base", "tenant"]
+    n_customers: int
+    n_outcomes: int
+    n_churned: int
+    n_retained: int
+    accuracy: Optional[float] = None
+    high_risk_precision: Optional[float] = None
+    recall: Optional[float] = None
+    auc: Optional[float] = None
+    confusion: Optional[ConfusionCounts] = None
+    tier_actual_churn: Optional[dict] = None
+    validated_improvement: Optional[ValidatedImprovement] = None
+    can_retrain: bool = False
+    retrain_hint: str = ""
+    min_outcomes_for_retrain: int
+
+
+class RetrainResponse(BaseModel):
+    trained: bool
+    promoted: bool
+    detail: str
+    base_auc: Optional[float] = None
+    tenant_auc: Optional[float] = None
+    n_train: Optional[int] = None
+    n_eval: Optional[int] = None
+    rescored: Optional[int] = None

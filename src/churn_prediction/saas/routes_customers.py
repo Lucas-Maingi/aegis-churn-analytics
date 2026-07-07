@@ -36,6 +36,7 @@ from churn_prediction.saas.schemas import (
     UploadResponse,
 )
 from churn_prediction.saas.scoring import score_customers
+from churn_prediction.saas.tenant_model import get_active_model
 
 logger = logging.getLogger(__name__)
 
@@ -147,9 +148,12 @@ async def upload_customers(
         cust.contract = str(feats.get("Contract") or "")
         touched.append(cust)
 
+    # Score with the org's active model — a promoted tenant model if it has
+    # one, otherwise the shared base model.
+    active_model, _ = get_active_model(db, user.org_id, request.app.state.model)
     scored = score_customers(
         touched,
-        model=request.app.state.model,
+        model=active_model,
         preprocessor=request.app.state.preprocessor,
         feature_names=request.app.state.feature_names,
     )

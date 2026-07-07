@@ -11,6 +11,7 @@ never runs if any organization already exists.
 
 import csv
 import logging
+from datetime import datetime, timezone
 
 from churn_prediction import config
 from churn_prediction.saas.db import SessionLocal
@@ -39,6 +40,35 @@ _SAMPLE_MAPPING = {
     "PaperlessBilling": "paperless_billing",
     "TechSupport": "tech_support_addon",
 }
+
+
+def _seed_outcomes(customers) -> None:
+    """Assign realistic ground-truth outcomes to most demo customers.
+
+    Outcomes are drawn from each customer's scored probability so the
+    scorecard reflects a real (imperfect) model. A deliberate tenant-specific
+    twist is added — in this ISP, short-tenure DSL customers churn more than
+    the Telco-trained base model expects — so a per-tenant retrain has a real
+    signal to learn and can legitimately beat the base model. ~1 in 4
+    customers is left unresolved to show that state in the UI.
+    """
+    import random
+
+    rng = random.Random(2026)
+    now = datetime.now(timezone.utc)
+
+    for cust in customers:
+        if rng.random() < 0.25:
+            continue  # leave unresolved
+
+        p = (cust.churn_probability or 0.0) / 100.0
+        # Tenant twist the base model under-weights: short-tenure DSL churns more.
+        feats = cust.features
+        if feats.get("InternetService") == "DSL" and cust.tenure <= 12:
+            p = min(1.0, p + 0.35)
+
+        cust.actual_outcome = "churned" if rng.random() < p else "retained"
+        cust.outcome_recorded_at = now
 
 
 def seed_demo_org(model, preprocessor, feature_names) -> bool:
@@ -88,6 +118,7 @@ def seed_demo_org(model, preprocessor, feature_names) -> bool:
         db.add_all(customers)
 
         score_customers(customers, model, preprocessor, feature_names)
+        _seed_outcomes(customers)
         db.commit()
         logger.info(
             "Seeded demo org '%s' with %d scored customers (login: %s).",
