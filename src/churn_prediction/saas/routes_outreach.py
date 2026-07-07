@@ -12,7 +12,7 @@ from sqlalchemy.orm import Session
 from churn_prediction.saas.db import get_db
 from churn_prediction.saas.deps import get_current_user
 from churn_prediction.saas.models import Customer, Organization, OutreachMessage, User
-from churn_prediction.saas.outreach import get_template, render, send_email, TEMPLATES
+from churn_prediction.saas.outreach import TEMPLATES, get_template, render, send_email
 from churn_prediction.saas.schemas import (
     OutreachMessageOut,
     OutreachTemplate,

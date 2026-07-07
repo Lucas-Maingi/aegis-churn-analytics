@@ -19,12 +19,12 @@ from churn_prediction.saas.retrain import (
     can_retrain,
     retrain_tenant_model,
 )
-from churn_prediction.saas.scorecard import compute_scorecard
 from churn_prediction.saas.schemas import (
     RecordOutcomeRequest,
     RetrainResponse,
     ScorecardResponse,
 )
+from churn_prediction.saas.scorecard import compute_scorecard
 
 logger = logging.getLogger(__name__)
 

@@ -14,7 +14,6 @@ resolved outcomes with both churned and retained examples present.
 """
 
 import logging
-from datetime import datetime, timezone
 from typing import Any
 
 import numpy as np
