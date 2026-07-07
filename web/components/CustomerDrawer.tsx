@@ -17,20 +17,24 @@ interface SendResponse {
 
 /**
  * Slide-over panel: full customer picture — churn probability, the
- * plain-English "why", and one-click retention actions.
+ * plain-English "why", one-click retention actions, and recording the
+ * real outcome once it's known.
  */
 export default function CustomerDrawer({
   customerId,
   onClose,
+  onOutcomeRecorded,
 }: {
   customerId: number;
   onClose: () => void;
+  onOutcomeRecorded?: () => void;
 }) {
   const [customer, setCustomer] = useState<CustomerDetail | null>(null);
   const [templates, setTemplates] = useState<OutreachTemplate[]>([]);
   const [error, setError] = useState("");
   const [sending, setSending] = useState("");
   const [sentNote, setSentNote] = useState("");
+  const [savingOutcome, setSavingOutcome] = useState(false);
 
   useEffect(() => {
     setCustomer(null);
@@ -63,6 +67,23 @@ export default function CustomerDrawer({
       setError(err instanceof ApiError ? err.message : "Failed to send.");
     } finally {
       setSending("");
+    }
+  }
+
+  async function recordOutcome(outcome: "churned" | "retained") {
+    setSavingOutcome(true);
+    setError("");
+    try {
+      await apiPost("/api/v1/model/outcome", {
+        customer_id: customerId,
+        outcome,
+      });
+      setCustomer((c) => (c ? { ...c, actual_outcome: outcome } : c));
+      onOutcomeRecorded?.();
+    } catch (err) {
+      setError(err instanceof ApiError ? err.message : "Failed to record outcome.");
+    } finally {
+      setSavingOutcome(false);
     }
   }
 
@@ -192,6 +213,56 @@ export default function CustomerDrawer({
                 </div>
               ))}
             </div>
+
+            <h3 className="mb-1 mt-6 text-sm font-semibold uppercase tracking-wide text-slate-400">
+              What actually happened?
+            </h3>
+            <p className="mb-2 text-xs leading-relaxed text-slate-500">
+              Once you know the outcome, record it — this trains the model on
+              your real results.
+            </p>
+            {customer.actual_outcome ? (
+              <div className="flex items-center gap-2 rounded-lg border border-slate-700/60 bg-slate-800/30 p-3 text-sm">
+                <span className="text-slate-400">Recorded outcome:</span>
+                <span
+                  className={`font-semibold ${
+                    customer.actual_outcome === "churned"
+                      ? "text-red-400"
+                      : "text-emerald-400"
+                  }`}
+                >
+                  {customer.actual_outcome === "churned" ? "Churned" : "Retained"}
+                </span>
+                <button
+                  onClick={() =>
+                    recordOutcome(
+                      customer.actual_outcome === "churned" ? "retained" : "churned",
+                    )
+                  }
+                  disabled={savingOutcome}
+                  className="ml-auto text-xs text-slate-500 underline hover:text-slate-300 disabled:opacity-50"
+                >
+                  change
+                </button>
+              </div>
+            ) : (
+              <div className="flex gap-2">
+                <button
+                  onClick={() => recordOutcome("churned")}
+                  disabled={savingOutcome}
+                  className="flex-1 rounded-lg border border-red-500/40 bg-red-500/10 py-2 text-sm font-semibold text-red-300 transition hover:bg-red-500/20 disabled:opacity-50"
+                >
+                  Churned
+                </button>
+                <button
+                  onClick={() => recordOutcome("retained")}
+                  disabled={savingOutcome}
+                  className="flex-1 rounded-lg border border-emerald-500/40 bg-emerald-500/10 py-2 text-sm font-semibold text-emerald-300 transition hover:bg-emerald-500/20 disabled:opacity-50"
+                >
+                  Retained
+                </button>
+              </div>
+            )}
           </>
         )}
       </div>

@@ -211,7 +211,11 @@ export default function CustomersPage() {
       )}
 
       {selected !== null && (
-        <CustomerDrawer customerId={selected} onClose={() => setSelected(null)} />
+        <CustomerDrawer
+          customerId={selected}
+          onClose={() => setSelected(null)}
+          onOutcomeRecorded={load}
+        />
       )}
     </div>
   );

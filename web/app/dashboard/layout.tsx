@@ -9,6 +9,7 @@ const NAV = [
   { href: "/dashboard", label: "Customers", icon: "👥" },
   { href: "/dashboard/upload", label: "Import data", icon: "📤" },
   { href: "/dashboard/outreach", label: "Outreach log", icon: "✉️" },
+  { href: "/dashboard/model", label: "Model", icon: "🎯" },
 ];
 
 export default function DashboardLayout({

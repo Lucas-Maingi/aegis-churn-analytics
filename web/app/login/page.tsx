@@ -68,7 +68,7 @@ export default function LoginPage() {
           {DEMO_LOGIN && (
             <div className="rounded-lg border border-sky-500/40 bg-sky-500/10 px-4 py-3 text-sm text-sky-200">
               <p>
-                Just exploring? A demo ISP with 60 scored customers is ready.
+                Just exploring? A demo ISP with 400 scored customers is ready.
               </p>
               <button
                 type="button"

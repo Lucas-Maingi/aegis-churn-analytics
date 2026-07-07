@@ -19,7 +19,7 @@ It began as a single-tenant model-serving project and evolved into a product: or
 
 **▶️ Try it live:** https://huggingface.co/spaces/lucas-maingi/aegis-churn-analytics
 
-The live demo runs the full SaaS — the Next.js dashboard and the FastAPI scoring engine — in a single always-on container. Click **"Use demo account"** on the login page (`demo@aegis.app` / `aegis-demo-2026`) to land on a demo ISP with 60 customers already scored, or create your own organization and import a CSV. Demo storage is ephemeral and resets on Space restarts.
+The live demo runs the full SaaS — the Next.js dashboard and the FastAPI scoring engine — in a single always-on container. Click **"Use demo account"** on the login page (`demo@aegis.app` / `aegis-demo-2026`) to land on a demo ISP with 400 customers already scored and ~300 outcomes recorded, so you can view the model scorecard and trigger a per-tenant retrain immediately. Or create your own organization and import a CSV. Demo storage is ephemeral and resets on Space restarts.
 
 ![Aegis churn dashboard](docs/demo.gif)
 
@@ -81,6 +81,7 @@ The winning model is a tuned **XGBoost classifier** selected via randomized sear
 - **CSV ingestion that meets operators where they are** — arbitrary billing-export headers are auto-matched to the model schema, and messy real-world values are normalized (`fiber` → `Fiber optic`, `mpesa` → `Electronic check`, `1 year` → `One year`). Re-uploads update rather than duplicate.
 - **Vectorized batch scoring** — one preprocessor/model/SHAP pass for the whole upload; probability, risk tier, and top-3 drivers (with raw, human-readable values) persist per customer.
 - **One-click outreach** — three retention templates rendered per customer; delivered via Resend when configured, recorded as `simulated` otherwise so the full workflow demos without credentials.
+- **Closed feedback loop** — operators record ground-truth outcomes (churned/retained); a scorecard measures how the active model actually performed against them (per-tier actual churn rates, recall, precision); and a gated per-tenant retrain fits an org-specific XGBoost on those outcomes, promoting it only if it beats the base model on a held-out split. Tenant models are stored per-org and used for that org's scoring. The retrain gate (minimum labeled outcomes, both classes present) is an overfitting guard, and the promotion decision is reported on held-out data — not the in-sample fit.
 - **Strict request validation** via Pydantic schemas — invalid categories or negative tenure are rejected with `422` and a structured error body.
 - **Sliding-window rate limiting** (60 req/min/IP) implemented as ASGI middleware.
 - **Lifespan artifact loading** — model, preprocessor, feature names, and metadata are loaded once at startup and fail fast if any artifact is missing.
@@ -152,7 +153,7 @@ The suite covers the preprocessing pipeline, the prediction API surface (auth, s
 
 Being explicit about the gap between this and a real production deployment:
 
-- **Single public dataset.** Telco is clean, static, and balanced-ish. A real carrier's data is messier and drifts — the honest path is scoring with this base model first, then fine-tuning per tenant once a few months of labeled outcomes accumulate. There is no per-tenant fine-tuning loop yet.
+- **Single public base dataset.** Telco is clean, static, and balanced-ish. A real carrier's data is messier and drifts — the honest path is scoring with this base model first, then retraining per tenant once labeled outcomes accumulate. That loop now exists (see "Closed feedback loop" above), but its promotion gate is deliberately conservative and the demo threshold is set low; a real deployment would require hundreds of labeled outcomes before a tenant model reliably beats the base.
 - **Telecom-shaped businesses only.** The feature schema (contract, tenure, service type, charges) transfers across ISPs/telcos, not to e-commerce or general SaaS.
 - **No billing/subscriptions.** Tenants are free; there is no Stripe metering of the platform itself yet.
 - **Rate limiting is in-process.** The sliding window is per-process and would need Redis (or similar) to work correctly behind multiple replicas.

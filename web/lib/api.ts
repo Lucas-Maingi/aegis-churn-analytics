@@ -135,6 +135,7 @@ export interface CustomerDetail extends CustomerSummary {
   features: Record<string, string | number>;
   explanations: Explanation[] | null;
   scored_at: string | null;
+  actual_outcome: "churned" | "retained" | null;
 }
 
 export interface CustomerList {
@@ -164,4 +165,43 @@ export interface OutreachMessage {
   subject: string;
   status: string;
   created_at: string;
+}
+
+export interface TierActualChurn {
+  churned: number;
+  total: number;
+  rate: number | null;
+}
+
+export interface Scorecard {
+  active_model: "base" | "tenant";
+  n_customers: number;
+  n_outcomes: number;
+  n_churned: number;
+  n_retained: number;
+  accuracy: number | null;
+  high_risk_precision: number | null;
+  recall: number | null;
+  auc: number | null;
+  confusion: { tp: number; fp: number; fn: number; tn: number } | null;
+  tier_actual_churn: Record<string, TierActualChurn> | null;
+  validated_improvement: {
+    base_auc: number | null;
+    tenant_auc: number | null;
+    n_eval: number;
+  } | null;
+  can_retrain: boolean;
+  retrain_hint: string;
+  min_outcomes_for_retrain: number;
+}
+
+export interface RetrainResult {
+  trained: boolean;
+  promoted: boolean;
+  detail: string;
+  base_auc: number | null;
+  tenant_auc: number | null;
+  n_train: number | null;
+  n_eval: number | null;
+  rescored: number | null;
 }
