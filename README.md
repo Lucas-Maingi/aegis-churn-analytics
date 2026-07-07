@@ -19,7 +19,7 @@ It began as a single-tenant model-serving project and evolved into a product: or
 
 **▶️ Try it live:** https://huggingface.co/spaces/lucas-maingi/aegis-churn-analytics
 
-The live demo runs the full stack — the FastAPI prediction API and the Streamlit dashboard — in a single always-on container.
+The live demo runs the full SaaS — the Next.js dashboard and the FastAPI scoring engine — in a single always-on container. Click **"Use demo account"** on the login page (`demo@aegis.app` / `aegis-demo-2026`) to land on a demo ISP with 60 customers already scored, or create your own organization and import a CSV. Demo storage is ephemeral and resets on Space restarts.
 
 ![Aegis churn dashboard](docs/demo.gif)
 
