@@ -27,6 +27,10 @@ trap cleanup EXIT
 
 git checkout -q --orphan "$SNAPSHOT"
 
+# Clear the inherited index first (working tree is untouched) so that every
+# file — including the joblibs — is re-added fresh through the LFS filter.
+git rm -r --cached --quiet .
+
 # Swap in the Space-specific entrypoints
 cp deploy/Dockerfile.hf Dockerfile
 cp deploy/README.hf.md README.md
@@ -35,9 +39,6 @@ cp deploy/README.hf.md README.md
 printf '*.joblib filter=lfs diff=lfs merge=lfs -text\n' > .gitattributes
 git lfs install --local >/dev/null
 
-# The orphan checkout inherits main's index with the joblibs as plain blobs;
-# clearing and re-adding forces the LFS clean filter to run over them.
-git rm -r --cached --quiet .
 git add -A
 git commit -q -m "deploy: Hugging Face Space snapshot (multi-tenant SaaS + feedback loop)"
 
