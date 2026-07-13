@@ -21,9 +21,7 @@ It began as a single-tenant model-serving project and evolved into a product: or
 
 The live demo runs the full SaaS — the Next.js dashboard and the FastAPI scoring engine — in a single always-on container. Click **"Use demo account"** on the login page (`demo@aegis.app` / `aegis-demo-2026`) to land on a demo ISP with 400 customers already scored and ~300 outcomes recorded, so you can view the model scorecard and trigger a per-tenant retrain immediately. Or create your own organization and import a CSV. Demo storage is ephemeral and resets on Space restarts.
 
-![Aegis churn dashboard](docs/demo.gif)
-
-> _Recording the GIF? See [`docs/HOW_TO_RECORD_DEMO.md`](docs/HOW_TO_RECORD_DEMO.md)._
+<!-- Demo GIF pending: shot list in docs/HOW_TO_RECORD_DEMO.md. Do not reference the file until it exists - a broken image is worse than none. -->
 
 ---
 
