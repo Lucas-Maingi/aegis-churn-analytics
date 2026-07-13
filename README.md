@@ -182,4 +182,4 @@ docs/               # demo assets + sample ISP billing CSV
 
 ## 📄 License
 
-MIT.
+MIT — see [LICENSE](LICENSE).
